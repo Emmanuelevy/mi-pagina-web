@@ -388,7 +388,7 @@ footer {
 
 /* Botón para volver arriba (desliza suave, no instantáneo) */
 .back-to-top {
-  margin-top: 16px;
+  margin-bottom: 16px;
   width: 48px;
   height: 48px;
   border-radius: 50%;
