@@ -291,6 +291,9 @@ a:hover { color: var(--red-dark); }
 
 .profile-menu[hidden] { display: none; }
 
+.hero-video[hidden],
+.hero-photo[hidden] { display: none; }
+
 .profile-menu button {
   display: block;
   width: 100%;
