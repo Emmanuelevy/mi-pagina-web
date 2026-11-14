@@ -380,15 +380,22 @@ a:hover { color: var(--red-dark); }
 
 /* Footer */
 footer {
+  position: relative;
   background: var(--ink);
   color: #fff;
   text-align: center;
   padding: 26px 20px;
 }
 
-/* Botón para volver arriba (desliza suave, no instantáneo) */
+/* Botón para volver arriba (desliza suave, no instantáneo).
+   Queda en medio de la línea entre lo blanco y lo negro: mitad
+   arriba (blanco) y mitad abajo (negro), sin mover el texto. */
 .back-to-top {
-  margin-bottom: 16px;
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
   width: 48px;
   height: 48px;
   border-radius: 50%;
