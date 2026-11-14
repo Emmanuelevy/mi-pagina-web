@@ -198,7 +198,7 @@ ANIMES_CARDS = """        <a class="game-card" href="https://es.dragon-ball-offi
           <img src="__ANIME_ONE_PIECE__" alt="One Piece">
           <span>One Piece</span>
         </a>
-        <a class="game-card" href="https://es.wikipedia.org/wiki/Naruto" target="_blank" rel="noopener">
+        <a class="game-card" href="https://naruto-official.com/es" target="_blank" rel="noopener">
           <img src="__ANIME_NARUTO__" alt="Naruto">
           <span>Naruto</span>
         </a>
