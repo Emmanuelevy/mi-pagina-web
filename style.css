@@ -163,6 +163,7 @@ a:hover { color: var(--red-dark); }
   border: 2px solid var(--red);
   border-radius: 20px;
   padding: 24px;
+  background: #fdf0f1;
 }
 
 /* Cards */
