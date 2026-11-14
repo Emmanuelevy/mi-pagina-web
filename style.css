@@ -275,11 +275,6 @@ a:hover { color: var(--red-dark); }
 
 /* Contact */
 .contact-list {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 22px 26px;
   max-width: 640px;
 }
 
