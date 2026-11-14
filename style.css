@@ -152,6 +152,12 @@ a:hover { color: var(--red-dark); }
   max-width: 720px;
 }
 
+.section-subtitle {
+  color: var(--red-dark);
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
 /* Cards */
 .grid {
   display: grid;
