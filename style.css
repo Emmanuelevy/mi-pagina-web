@@ -333,6 +333,39 @@ a:hover { color: var(--red-dark); }
   height: 260px;
 }
 
+/* Rejilla de videojuegos favoritos */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.game-card {
+  display: block;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.game-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.game-card span {
+  display: block;
+  padding: 10px 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
 .avatars-grid { margin-top: 20px; }
 
 .avatars-grid[hidden] { display: none; }
