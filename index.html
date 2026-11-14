@@ -86,6 +86,7 @@
 
 <footer>
   <p>&copy; 2026 Ing. Emmanuel Salomón Santiago Bustamante. Hecho en México.</p>
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Volver arriba">↑</button>
 </footer>
 <script>
   var AVATARS = {
@@ -153,6 +154,12 @@
         menu.hidden = true;
         arrow.setAttribute('aria-expanded', 'false');
       }
+    });
+  })();
+  (function () {
+    var btn = document.getElementById('back-to-top');
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   })();
 </script>
