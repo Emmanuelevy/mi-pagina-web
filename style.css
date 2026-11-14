@@ -251,6 +251,60 @@ a:hover { color: var(--red-dark); }
 
 .avatar-card .card-body p { text-align: justify; }
 
+/* Foto de perfil con flechita para cambiar de avatar */
+.profile-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-arrow {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: var(--red);
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 0;
+}
+
+.profile-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  min-width: 180px;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.profile-menu[hidden] { display: none; }
+
+.profile-menu button {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.profile-menu button:hover { background: #fdf0f1; }
+
 /* Cuadritos: todos del mismo tamaño (portafolio, avatares y los que vengan) */
 .avatar-toggle {
   display: block;
