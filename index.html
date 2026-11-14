@@ -63,5 +63,16 @@
 <footer>
   <p>&copy; 2026 Ing. Emmanuel Salomón Santiago Bustamante. Hecho en México.</p>
 </footer>
+<script>
+  (function () {
+    document.querySelectorAll('.nav a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var el = document.querySelector(a.getAttribute('href'));
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  })();
+</script>
 </body>
 </html>
