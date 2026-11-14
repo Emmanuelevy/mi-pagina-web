@@ -241,6 +241,7 @@ a:hover { color: var(--red-dark); }
   padding: 0;
   border: 1px solid var(--line);
   cursor: pointer;
+  text-decoration: none;
 }
 
 .avatar-toggle img {
