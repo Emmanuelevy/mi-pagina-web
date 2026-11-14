@@ -23,6 +23,12 @@ body {
   line-height: 1.6;
 }
 
+/* Cuando la página se ve dentro de la app, el menú de abajo tapa el pie:
+   se agrega espacio para poder bajar y ver lo último completo. */
+body.embedded {
+  padding-bottom: 140px;
+}
+
 a { color: var(--red); }
 a:hover { color: var(--red-dark); }
 
