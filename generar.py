@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Genera index.html y avatares.html para Mi página web con las imágenes reales embebidas en base64."""
+"""Genera index.html, avatares.html, videojuegos.html y animes.html
+para Mi página web, con las imágenes reales embebidas en base64."""
 import base64
 import os
 
 BASE = os.path.dirname(os.path.abspath(__file__))
+
 
 def b64(path):
     ext = os.path.splitext(path)[1].lower()
@@ -11,202 +13,136 @@ def b64(path):
     with open(os.path.join(BASE, path), "rb") as f:
         return f"data:{mime};base64," + base64.b64encode(f.read()).decode("ascii")
 
-TINY_HEADER = b64("assets/avatars/merlin.webp")
-PORTFOLIO_HERO = b64("assets/portfolio-hero.png")
-AV = {
-    "tiny": b64("assets/avatars-256/tiny.webp"),
-    "emmanuel": b64("assets/avatars-256/emmanuel.webp"),
-    "fantasma": b64("assets/avatars-256/fantasma.webp"),
-    "gastly": b64("assets/avatars-256/gastly.webp"),
-    "merlin": b64("assets/avatars-256/merlin.webp"),
-    "velociraptor": b64("assets/avatars-256/velociraptor.webp"),
-    "tiranosaurio": b64("assets/avatars-256/tiranosaurio-rex.webp"),
-    "tiburon": b64("assets/avatars-256/tiburon.webp"),
+
+# Todas las imágenes embebidas: marcador -> archivo.
+# Un solo diccionario y un solo bucle de sustitución en fill().
+IMAGE_FILES = {
+    "__HERO_PHOTO__": "assets/avatars/merlin.webp",
+    "__PORTFOLIO_HERO__": "assets/portfolio-hero.png",
+    "__AV_TINY__": "assets/avatars-256/tiny.webp",
+    "__AV_EMMANUEL__": "assets/avatars-256/emmanuel.webp",
+    "__AV_FANTASMA__": "assets/avatars-256/fantasma.webp",
+    "__AV_GASTLY__": "assets/avatars-256/gastly.webp",
+    "__AV_MERLIN__": "assets/avatars-256/merlin.webp",
+    "__AV_VELOCIRAPTOR__": "assets/avatars-256/velociraptor.webp",
+    "__AV_TIRANOSAURIO__": "assets/avatars-256/tiranosaurio-rex.webp",
+    "__AV_TIBURON__": "assets/avatars-256/tiburon.webp",
+    "__GAME_RED_DEAD_REDEMPTION__": "assets/games/red-dead-redemption.jpg",
+    "__GAME_GTA_V__": "assets/games/gta-v.jpg",
+    "__GAME_MANEATER__": "assets/games/maneater.jpg",
+    "__GAME_DRAGON_BALL_Z_KAKAROT__": "assets/games/dragon-ball-z-kakarot.jpg",
+    "__GAME_MIDNIGHT_CLUB_3__": "assets/games/midnight-club-3.jpg",
+    "__GAME_METAL_SLUG_AWAKENING__": "assets/games/metal-slug-awakening.jpg",
+    "__GAME_TWISTED_METAL_3__": "assets/games/twisted-metal-3.jpg",
+    "__GAME_DRAGON_BALL_LEGENDS__": "assets/games/dragon-ball-legends.jpg",
+    "__GAME_POKEMON_GO__": "assets/games/pokemon-go.jpg",
+    "__GAME_SUPER_SMASH_BROS__": "assets/games/super-smash-bros.jpg",
+    "__GAME_KIRBYS_ADVENTURE__": "assets/games/kirbys-adventure.jpg",
+    "__GAME_METAL_SLUG__": "assets/games/metal-slug.jpg",
+    "__GAME_METAL_SLUG_2__": "assets/games/metal-slug-2.jpg",
+    "__GAME_METAL_SLUG_X__": "assets/games/metal-slug-x.jpg",
+    "__GAME_METAL_SLUG_3__": "assets/games/metal-slug-3.jpg",
+    "__GAME_METAL_SLUG_4__": "assets/games/metal-slug-4.jpg",
+    "__GAME_METAL_SLUG_5__": "assets/games/metal-slug-5.jpg",
+    "__ANIME_DRAGON_BALL__": "assets/animes/dragon-ball.jpg",
+    "__ANIME_ONE_PIECE__": "assets/animes/one-piece.jpg",
+    "__ANIME_NARUTO__": "assets/animes/naruto.jpg",
+    "__ANIME_BAKI__": "assets/animes/baki.jpg",
 }
 
-GAMES = {
-    "red-dead-redemption": b64("assets/games/red-dead-redemption.jpg"),
-    "gta-v": b64("assets/games/gta-v.jpg"),
-    "maneater": b64("assets/games/maneater.jpg"),
-    "dragon-ball-z-kakarot": b64("assets/games/dragon-ball-z-kakarot.jpg"),
-    "midnight-club-3": b64("assets/games/midnight-club-3.jpg"),
-    "metal-slug-awakening": b64("assets/games/metal-slug-awakening.jpg"),
-    "twisted-metal-3": b64("assets/games/twisted-metal-3.jpg"),
-    "dragon-ball-legends": b64("assets/games/dragon-ball-legends.jpg"),
-    "pokemon-go": b64("assets/games/pokemon-go.jpg"),
-    "super-smash-bros": b64("assets/games/super-smash-bros.jpg"),
-    "kirbys-adventure": b64("assets/games/kirbys-adventure.jpg"),
-    "metal-slug": b64("assets/games/metal-slug.jpg"),
-    "metal-slug-2": b64("assets/games/metal-slug-2.jpg"),
-    "metal-slug-x": b64("assets/games/metal-slug-x.jpg"),
-    "metal-slug-3": b64("assets/games/metal-slug-3.jpg"),
-    "metal-slug-4": b64("assets/games/metal-slug-4.jpg"),
-    "metal-slug-5": b64("assets/games/metal-slug-5.jpg"),
-}
+IMAGES = {marker: b64(path) for marker, path in IMAGE_FILES.items()}
 
-ANIMES = {
-    "dragon-ball": b64("assets/animes/dragon-ball.jpg"),
-    "one-piece": b64("assets/animes/one-piece.jpg"),
-    "naruto": b64("assets/animes/naruto.jpg"),
-    "baki": b64("assets/animes/baki.jpg"),
-}
 
 def fill(template):
-    out = template.replace("__TINY_HEADER__", TINY_HEADER)
-    out = out.replace("__PORTFOLIO_HERO__", PORTFOLIO_HERO)
-    for key, val in AV.items():
-        out = out.replace(f"__AV_{key.upper()}__", val)
-    for key, val in GAMES.items():
-        out = out.replace(f"__GAME_{key.upper().replace('-', '_')}__", val)
-    for key, val in ANIMES.items():
-        out = out.replace(f"__ANIME_{key.upper().replace('-', '_')}__", val)
-    return out
+    for marker, data in IMAGES.items():
+        template = template.replace(marker, data)
+    return template
 
-AVATAR_CARDS = """      <article class="card avatar-card current">
-        <img src="__AV_TINY__" alt="Tiny">
-        <div class="card-body">
-          <h3>Tiny</h3>
-          <p>Tiny es un pitbull Red Nose, musculoso y sonriente, leal y protector con su familia, con su collar rojo de picos color oro.</p>
-        </div>
-      </article>
-      <article class="card avatar-card">
-        <img src="__AV_EMMANUEL__" alt="Emmanuel">
-        <div class="card-body">
-          <h3>Emmanuel</h3>
-          <p>Emmanuel en versión avatar 3D, musculoso, con el pelo corto, shorts blancos y gotas de agua.</p>
-        </div>
-      </article>
-      <article class="card avatar-card">
-        <img src="__AV_FANTASMA__" alt="Fantasma">
-        <div class="card-body">
-          <h3>Fantasma</h3>
-          <p>El fantasma negro es una bola oscura con brazos, rodeado de un aura de fuego morado, con ojos blancos, colmillos y boca roja, intimidante y misterioso.</p>
-        </div>
-      </article>
-      <article class="card avatar-card">
-        <img src="__AV_GASTLY__" alt="Gastly">
-        <div class="card-body">
-          <h3>Gastly</h3>
-          <p>El fantasma negro es una bola flotante oscura rodeada de un aura de fuego morado, intimidante y misterioso, que parece correr dejando una estela de llamas detrás. Ahora con dos colmillos y la boca roja.</p>
-        </div>
-      </article>
-      <article class="card avatar-card">
-        <img src="__AV_MERLIN__" alt="Merlin">
-        <div class="card-body">
-          <h3>Merlin</h3>
-          <p>Merlin es el mago más famoso de la leyenda artúrica, consejero del rey Arturo y maestro de la magia. Con su larga barba blanca, su sombrero puntiagudo y su báculo, es símbolo de sabiduría, poder y misterio.</p>
-        </div>
-      </article>
-      <article class="card avatar-card">
-        <img src="__AV_VELOCIRAPTOR__" alt="Velociraptor">
-        <div class="card-body">
-          <h3>Velociraptor</h3>
-          <p>El velociraptor fue un dinosaurio pequeño pero muy inteligente y rápido, famoso por cazar en manada y por su garra en forma de hoz en cada pie. En la cultura popular es símbolo de astucia, velocidad y trabajo en equipo.</p>
-        </div>
-      </article>
-      <article class="card avatar-card">
-        <img src="__AV_TIRANOSAURIO__" alt="Tiranosaurio rex">
-        <div class="card-body">
-          <h3>Tiranosaurio rex</h3>
-          <p>El T. rex no es un ser mitológico, pero en la cultura popular es el rey de los dinosaurios: su nombre significa &lsquo;rey lagarto tirano&rsquo; y es símbolo de fuerza y poder.</p>
-        </div>
-      </article>
-      <article class="card avatar-card">
-        <img src="__AV_TIBURON__" alt="Tiburón">
-        <div class="card-body">
-          <h3>Tiburón</h3>
-          <p>En la mitología hawaiana, los tiburones son &lsquo;aumākua: espíritus guardianes ancestrales que protegen a las familias, guían a los pescadores en el mar y castigan a quien rompe los kapu, los tabúes sagrados del océano. En muchas culturas del Pacífico el tiburón es un dios y mensajero del mar, símbolo de fuerza, respeto y protección: no se le teme solo como depredador, se le honra como guardián.</p>
-        </div>
-      </article>
-"""
 
-GAMES_CARDS = """        <a class="game-card" href="https://www.rockstargames.com/reddeadredemption" target="_blank" rel="noopener">
-          <img src="__GAME_RED_DEAD_REDEMPTION__" alt="Red Dead Redemption">
-          <span>Red Dead Redemption</span>
-        </a>
-        <a class="game-card" href="https://www.rockstargames.com/gta-v" target="_blank" rel="noopener">
-          <img src="__GAME_GTA_V__" alt="GTA V">
-          <span>GTA V</span>
-        </a>
-        <a class="game-card" href="https://store.steampowered.com/app/629820/Maneater/" target="_blank" rel="noopener">
-          <img src="__GAME_MANEATER__" alt="Maneater">
-          <span>Maneater</span>
-        </a>
-        <a class="game-card" href="https://store.steampowered.com/app/851850/DRAGON_BALL_Z_KAKAROT/" target="_blank" rel="noopener">
-          <img src="__GAME_DRAGON_BALL_Z_KAKAROT__" alt="Dragon Ball Z Kakarot">
-          <span>Dragon Ball Z Kakarot</span>
-        </a>
-        <a class="game-card" href="https://en.wikipedia.org/wiki/Midnight_Club_3:_DUB_Edition" target="_blank" rel="noopener">
-          <img src="__GAME_MIDNIGHT_CLUB_3__" alt="Midnight Club 3: DUB Edition">
-          <span>Midnight Club 3: DUB Edition</span>
-        </a>
-        <a class="game-card" href="https://metalslugawk.vnggames.com/" target="_blank" rel="noopener">
-          <img src="__GAME_METAL_SLUG_AWAKENING__" alt="Metal Slug Awakening">
-          <span>Metal Slug Awakening</span>
-        </a>
-        <a class="game-card" href="https://en.wikipedia.org/wiki/Twisted_Metal_3" target="_blank" rel="noopener">
-          <img src="__GAME_TWISTED_METAL_3__" alt="Twisted Metal 3">
-          <span>Twisted Metal 3</span>
-        </a>
-        <a class="game-card" href="https://dragonball-legends.com/" target="_blank" rel="noopener">
-          <img src="__GAME_DRAGON_BALL_LEGENDS__" alt="Dragon Ball Legends">
-          <span>Dragon Ball Legends</span>
-        </a>
-        <a class="game-card" href="https://pokemongolive.com/" target="_blank" rel="noopener">
-          <img src="__GAME_POKEMON_GO__" alt="Pokemon Go">
-          <span>Pokemon Go</span>
-        </a>
-        <a class="game-card" href="https://en.wikipedia.org/wiki/Super_Smash_Bros._(video_game)" target="_blank" rel="noopener">
-          <img src="__GAME_SUPER_SMASH_BROS__" alt="Super Smash Bros">
-          <span>Super Smash Bros</span>
-        </a>
-        <a class="game-card" href="https://en.wikipedia.org/wiki/Kirby%27s_Adventure" target="_blank" rel="noopener">
-          <img src="__GAME_KIRBYS_ADVENTURE__" alt="Kirby's Adventure">
-          <span>Kirby's Adventure</span>
-        </a>
-        <a class="game-card" href="https://en.wikipedia.org/wiki/Metal_Slug_(video_game)" target="_blank" rel="noopener">
-          <img src="__GAME_METAL_SLUG__" alt="Metal Slug">
-          <span>Metal Slug</span>
-        </a>
-        <a class="game-card" href="https://en.wikipedia.org/wiki/Metal_Slug_2" target="_blank" rel="noopener">
-          <img src="__GAME_METAL_SLUG_2__" alt="Metal Slug 2">
-          <span>Metal Slug 2</span>
-        </a>
-        <a class="game-card" href="https://en.wikipedia.org/wiki/Metal_Slug_X" target="_blank" rel="noopener">
-          <img src="__GAME_METAL_SLUG_X__" alt="Metal Slug X">
-          <span>Metal Slug X</span>
-        </a>
-        <a class="game-card" href="https://en.wikipedia.org/wiki/Metal_Slug_3" target="_blank" rel="noopener">
-          <img src="__GAME_METAL_SLUG_3__" alt="Metal Slug 3">
-          <span>Metal Slug 3</span>
-        </a>
-        <a class="game-card" href="https://en.wikipedia.org/wiki/Metal_Slug_4" target="_blank" rel="noopener">
-          <img src="__GAME_METAL_SLUG_4__" alt="Metal Slug 4">
-          <span>Metal Slug 4</span>
-        </a>
-        <a class="game-card" href="https://en.wikipedia.org/wiki/Metal_Slug_5" target="_blank" rel="noopener">
-          <img src="__GAME_METAL_SLUG_5__" alt="Metal Slug 5">
-          <span>Metal Slug 5</span>
-        </a>
-"""
+# (nombre, marcador de imagen, descripción, es el avatar puesto)
+AVATARS = [
+    ("Tiny", "__AV_TINY__",
+     "Tiny es un pitbull Red Nose, musculoso y sonriente, leal y protector con su familia, con su collar rojo de picos color oro.",
+     True),
+    ("Emmanuel", "__AV_EMMANUEL__",
+     "Emmanuel en versión avatar 3D, musculoso, con el pelo corto, shorts blancos y gotas de agua.",
+     False),
+    ("Fantasma", "__AV_FANTASMA__",
+     "El fantasma negro es una bola oscura con brazos, rodeado de un aura de fuego morado, con ojos blancos, colmillos y boca roja, intimidante y misterioso.",
+     False),
+    ("Gastly", "__AV_GASTLY__",
+     "El fantasma negro es una bola flotante oscura rodeada de un aura de fuego morado, intimidante y misterioso, que parece correr dejando una estela de llamas detrás. Ahora con dos colmillos y la boca roja.",
+     False),
+    ("Merlin", "__AV_MERLIN__",
+     "Merlin es el mago más famoso de la leyenda artúrica, consejero del rey Arturo y maestro de la magia. Con su larga barba blanca, su sombrero puntiagudo y su báculo, es símbolo de sabiduría, poder y misterio.",
+     False),
+    ("Velociraptor", "__AV_VELOCIRAPTOR__",
+     "El velociraptor fue un dinosaurio pequeño pero muy inteligente y rápido, famoso por cazar en manada y por su garra en forma de hoz en cada pie. En la cultura popular es símbolo de astucia, velocidad y trabajo en equipo.",
+     False),
+    ("Tiranosaurio rex", "__AV_TIRANOSAURIO__",
+     "El T. rex no es un ser mitológico, pero en la cultura popular es el rey de los dinosaurios: su nombre significa &lsquo;rey lagarto tirano&rsquo; y es símbolo de fuerza y poder.",
+     False),
+    ("Tiburón", "__AV_TIBURON__",
+     "En la mitología hawaiana, los tiburones son &lsquo;aumākua: espíritus guardianes ancestrales que protegen a las familias, guían a los pescadores en el mar y castigan a quien rompe los kapu, los tabúes sagrados del océano. En muchas culturas del Pacífico el tiburón es un dios y mensajero del mar, símbolo de fuerza, respeto y protección: no se le teme solo como depredador, se le honra como guardián.",
+     False),
+]
 
-ANIMES_CARDS = """        <a class="game-card" href="https://es.dragon-ball-official.com" target="_blank" rel="noopener">
-          <img src="__ANIME_DRAGON_BALL__" alt="Dragon Ball">
-          <span>Dragon Ball</span>
-        </a>
-        <a class="game-card" href="https://one-piece.com" target="_blank" rel="noopener">
-          <img src="__ANIME_ONE_PIECE__" alt="One Piece">
-          <span>One Piece</span>
-        </a>
-        <a class="game-card" href="https://naruto-official.com/es" target="_blank" rel="noopener">
-          <img src="__ANIME_NARUTO__" alt="Naruto">
-          <span>Naruto</span>
-        </a>
-        <a class="game-card" href="https://baki-anime.jp" target="_blank" rel="noopener">
-          <img src="__ANIME_BAKI__" alt="Baki">
-          <span>Baki</span>
-        </a>
-"""
+# (nombre, enlace, marcador de imagen)
+GAMES = [
+    ("Red Dead Redemption", "https://www.rockstargames.com/reddeadredemption", "__GAME_RED_DEAD_REDEMPTION__"),
+    ("GTA V", "https://www.rockstargames.com/gta-v", "__GAME_GTA_V__"),
+    ("Maneater", "https://store.steampowered.com/app/629820/Maneater/", "__GAME_MANEATER__"),
+    ("Dragon Ball Z Kakarot", "https://store.steampowered.com/app/851850/DRAGON_BALL_Z_KAKAROT/", "__GAME_DRAGON_BALL_Z_KAKAROT__"),
+    ("Midnight Club 3: DUB Edition", "https://en.wikipedia.org/wiki/Midnight_Club_3:_DUB_Edition", "__GAME_MIDNIGHT_CLUB_3__"),
+    ("Metal Slug Awakening", "https://metalslugawk.vnggames.com/", "__GAME_METAL_SLUG_AWAKENING__"),
+    ("Twisted Metal 3", "https://en.wikipedia.org/wiki/Twisted_Metal_3", "__GAME_TWISTED_METAL_3__"),
+    ("Dragon Ball Legends", "https://dragonball-legends.com/", "__GAME_DRAGON_BALL_LEGENDS__"),
+    ("Pokemon Go", "https://pokemongolive.com/", "__GAME_POKEMON_GO__"),
+    ("Super Smash Bros", "https://en.wikipedia.org/wiki/Super_Smash_Bros._(video_game)", "__GAME_SUPER_SMASH_BROS__"),
+    ("Kirby's Adventure", "https://en.wikipedia.org/wiki/Kirby%27s_Adventure", "__GAME_KIRBYS_ADVENTURE__"),
+    ("Metal Slug", "https://en.wikipedia.org/wiki/Metal_Slug_(video_game)", "__GAME_METAL_SLUG__"),
+    ("Metal Slug 2", "https://en.wikipedia.org/wiki/Metal_Slug_2", "__GAME_METAL_SLUG_2__"),
+    ("Metal Slug X", "https://en.wikipedia.org/wiki/Metal_Slug_X", "__GAME_METAL_SLUG_X__"),
+    ("Metal Slug 3", "https://en.wikipedia.org/wiki/Metal_Slug_3", "__GAME_METAL_SLUG_3__"),
+    ("Metal Slug 4", "https://en.wikipedia.org/wiki/Metal_Slug_4", "__GAME_METAL_SLUG_4__"),
+    ("Metal Slug 5", "https://en.wikipedia.org/wiki/Metal_Slug_5", "__GAME_METAL_SLUG_5__"),
+]
+
+ANIMES = [
+    ("Dragon Ball", "https://es.dragon-ball-official.com", "__ANIME_DRAGON_BALL__"),
+    ("One Piece", "https://one-piece.com", "__ANIME_ONE_PIECE__"),
+    ("Naruto", "https://naruto-official.com/es", "__ANIME_NARUTO__"),
+    ("Baki", "https://baki-anime.jp", "__ANIME_BAKI__"),
+]
+
+
+def avatar_cards():
+    cards = []
+    for name, img, text, current in AVATARS:
+        cls = "card avatar-card current" if current else "card avatar-card"
+        cards.append(
+            f'      <article class="{cls}">\n'
+            f'        <img src="{img}" alt="{name}">\n'
+            f'        <div class="card-body">\n'
+            f'          <h3>{name}</h3>\n'
+            f'          <p>{text}</p>\n'
+            f'        </div>\n'
+            f'      </article>'
+        )
+    return "\n".join(cards) + "\n"
+
+
+def link_cards(items):
+    cards = []
+    for name, url, img in items:
+        cards.append(
+            f'        <a class="game-card" href="{url}" target="_blank" rel="noopener">\n'
+            f'          <img src="{img}" alt="{name}">\n'
+            f'          <span>{name}</span>\n'
+            f'        </a>'
+        )
+    return "\n".join(cards) + "\n"
+
 
 index_html = """<!DOCTYPE html>
 <html lang="es">
@@ -227,7 +163,7 @@ index_html = """<!DOCTYPE html>
   <div class="hero-inner">
     <div class="profile-wrap">
       <video class="hero-avatar hero-video" id="hero-video" src="assets/videos/merlin.mp4" autoplay loop muted playsinline></video>
-      <img class="hero-avatar hero-photo" id="hero-photo" src="__TINY_HEADER__" alt="Merlin, el mago: con su larga barba blanca, su sombrero puntiagudo y su báculo" hidden>
+      <img class="hero-avatar hero-photo" id="hero-photo" src="__HERO_PHOTO__" alt="Merlin, el mago: con su larga barba blanca, su sombrero puntiagudo y su báculo" hidden>
       <button class="profile-arrow" id="profile-arrow" type="button" aria-label="Cambiar foto de perfil" aria-expanded="false">▼</button>
       <div class="profile-menu" id="profile-menu" hidden>
         <button type="button" data-avatar="tiny">Tiny</button>
@@ -382,13 +318,16 @@ index_html = """<!DOCTYPE html>
 </html>
 """
 
-avatares_html = """<!DOCTYPE html>
+# Plantilla común de las páginas de lista (avatares, videojuegos, animes):
+# solo cambian el título, la descripción, el encabezado, la intro,
+# la clase de la rejilla y las tarjetas.
+SUBPAGE = """<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mis avatares | Emmanuel Salomón Santiago Bustamante</title>
-<meta name="description" content="Mis avatares: Tiny, Emmanuel, Fantasma, Gastly, Merlin, Velociraptor, Tiranosaurio rex y Tiburón.">
+<title>__TITLE__ | Emmanuel Salomón Santiago Bustamante</title>
+<meta name="description" content="__DESCRIPTION__">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -397,15 +336,15 @@ avatares_html = """<!DOCTYPE html>
     <a href="index.html">← Volver a mi página</a>
   </nav>
   <div class="hero-inner">
-    <h1>Mis avatares</h1>
-    <p class="hero-sub">Te presento mis avatares, realizados en modelo 3D.</p>
+    <h1>__HEADING__</h1>
+    <p class="hero-sub">__INTRO__</p>
   </div>
 </header>
 
 <main>
   <section class="section">
-    <div class="grid avatars-grid">
-__AVATAR_CARDS__
+    <div class="__GRID_CLASS__">
+__CARDS__
     </div>
   </section>
 </main>
@@ -422,102 +361,47 @@ __AVATAR_CARDS__
 </html>
 """
 
-videojuegos_html = """<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mis videojuegos | Emmanuel Salomón Santiago Bustamante</title>
-<meta name="description" content="Mis videojuegos favoritos: Red Dead Redemption, GTA V, Maneater, Dragon Ball Z Kakarot, Metal Slug y más.">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="hero">
-  <nav class="nav">
-    <a href="index.html">← Volver a mi página</a>
-  </nav>
-  <div class="hero-inner">
-    <h1>Mis videojuegos</h1>
-    <p class="hero-sub">Te presento mis videojuegos favoritos.</p>
-  </div>
-</header>
 
-<main>
-  <section class="section">
-    <div class="games-grid">
-__GAMES_CARDS__
-    </div>
-  </section>
-</main>
+def subpage(title, description, heading, intro, grid_class, cards):
+    page = SUBPAGE
+    page = page.replace("__TITLE__", title)
+    page = page.replace("__DESCRIPTION__", description)
+    page = page.replace("__HEADING__", heading)
+    page = page.replace("__INTRO__", intro)
+    page = page.replace("__GRID_CLASS__", grid_class)
+    page = page.replace("__CARDS__", cards)
+    return page
 
-<footer>
-  <p>&copy; 2026 Ing. Emmanuel Salomón Santiago Bustamante. Hecho en México.</p>
-</footer>
-<script>
-  if (window.self !== window.top) {
-    document.body.classList.add('embedded');
-  }
-</script>
-</body>
-</html>
-"""
 
-animes_html = """<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mis animes | Emmanuel Salomón Santiago Bustamante</title>
-<meta name="description" content="Mis animes favoritos: Dragon Ball, One Piece, Naruto y Baki.">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="hero">
-  <nav class="nav">
-    <a href="index.html">← Volver a mi página</a>
-  </nav>
-  <div class="hero-inner">
-    <h1>Mis animes</h1>
-    <p class="hero-sub">Te presento mis animes favoritos.</p>
-  </div>
-</header>
+def write_page(filename, html):
+    path = os.path.join(BASE, filename)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"{filename}: {len(html)} bytes")
 
-<main>
-  <section class="section">
-    <div class="games-grid">
-__ANIMES_CARDS__
-    </div>
-  </section>
-</main>
 
-<footer>
-  <p>&copy; 2026 Ing. Emmanuel Salomón Santiago Bustamante. Hecho en México.</p>
-</footer>
-<script>
-  if (window.self !== window.top) {
-    document.body.classList.add('embedded');
-  }
-</script>
-</body>
-</html>
-"""
-
-index_out = fill(index_html)
-with open(os.path.join(BASE, "index.html"), "w", encoding="utf-8") as f:
-    f.write(index_out)
-print("index.html:", len(index_out), "bytes")
-
-avatares_out = fill(avatares_html.replace("__AVATAR_CARDS__", AVATAR_CARDS))
-with open(os.path.join(BASE, "avatares.html"), "w", encoding="utf-8") as f:
-    f.write(avatares_out)
-print("avatares.html:", len(avatares_out), "bytes")
-
-videojuegos_out = fill(videojuegos_html.replace("__GAMES_CARDS__", GAMES_CARDS))
-with open(os.path.join(BASE, "videojuegos.html"), "w", encoding="utf-8") as f:
-    f.write(videojuegos_out)
-print("videojuegos.html:", len(videojuegos_out), "bytes")
-
-animes_out = fill(animes_html.replace("__ANIMES_CARDS__", ANIMES_CARDS))
-with open(os.path.join(BASE, "animes.html"), "w", encoding="utf-8") as f:
-    f.write(animes_out)
-print("animes.html:", len(animes_out), "bytes")
+write_page("index.html", fill(index_html))
+write_page("avatares.html", fill(subpage(
+    "Mis avatares",
+    "Mis avatares: Tiny, Emmanuel, Fantasma, Gastly, Merlin, Velociraptor, Tiranosaurio rex y Tiburón.",
+    "Mis avatares",
+    "Te presento mis avatares, realizados en modelo 3D.",
+    "grid avatars-grid",
+    avatar_cards(),
+)))
+write_page("videojuegos.html", fill(subpage(
+    "Mis videojuegos",
+    "Mis videojuegos favoritos: Red Dead Redemption, GTA V, Maneater, Dragon Ball Z Kakarot, Metal Slug y más.",
+    "Mis videojuegos",
+    "Te presento mis videojuegos favoritos.",
+    "games-grid",
+    link_cards(GAMES),
+)))
+write_page("animes.html", fill(subpage(
+    "Mis animes",
+    "Mis animes favoritos: Dragon Ball, One Piece, Naruto y Baki.",
+    "Mis animes",
+    "Te presento mis animes favoritos.",
+    "games-grid",
+    link_cards(ANIMES),
+)))
