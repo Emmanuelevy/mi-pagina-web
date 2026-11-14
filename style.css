@@ -276,6 +276,7 @@ a:hover { color: var(--red-dark); }
 /* Contact */
 .contact-list {
   max-width: 640px;
+  padding-left: 24px;
 }
 
 .contact-list p { margin: 10px 0; }
