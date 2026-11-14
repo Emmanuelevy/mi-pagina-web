@@ -209,6 +209,15 @@ a:hover { color: var(--red-dark); }
 
 .card.featured { border: 2px solid var(--red); }
 
+/* Cuadrito del portafolio: toda la tarjeta es un enlace */
+.portfolio-link {
+  text-decoration: none;
+  color: var(--ink);
+  max-width: 360px;
+}
+
+.portfolio-link:hover { transform: translateY(-1px); }
+
 /* Avatars */
 .avatars-grid .card img {
   height: 220px;
