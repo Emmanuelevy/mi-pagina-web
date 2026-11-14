@@ -155,7 +155,7 @@ a:hover { color: var(--red-dark); }
 .section-subtitle {
   color: var(--red-dark);
   font-weight: 600;
-  margin: 0 0 10px;
+  margin: 8px 0 10px;
 }
 
 /* Cards */
