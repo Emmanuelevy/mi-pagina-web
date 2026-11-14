@@ -247,7 +247,7 @@ a:hover { color: var(--red-dark); }
   object-position: top;
 }
 
-.avatar-card.current { border: 2px solid var(--red); }
+.avatar-card { border: 2px solid var(--red); }
 
 .avatar-card .card-body p { text-align: justify; }
 
