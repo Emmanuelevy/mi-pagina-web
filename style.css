@@ -158,6 +158,13 @@ a:hover { color: var(--red-dark); }
   margin: 28px 0 10px;
 }
 
+/* Cuadro perimetral: enmarca la sección para distinguirla */
+.perimeter-box {
+  border: 2px solid var(--red);
+  border-radius: 20px;
+  padding: 24px;
+}
+
 /* Cards */
 .grid {
   display: grid;
