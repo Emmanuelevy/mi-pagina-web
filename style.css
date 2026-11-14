@@ -144,6 +144,8 @@ a:hover { color: var(--red-dark); }
   color: var(--red-dark);
 }
 
+.section-title-small { font-size: 1.4rem; }
+
 .section-intro {
   color: var(--muted);
   margin: 0 0 28px;
