@@ -387,6 +387,7 @@ a:hover { color: var(--red-dark); }
 /* Footer */
 footer {
   position: relative;
+  margin-top: 60px;
   background: var(--ink);
   color: #fff;
   text-align: center;
@@ -394,12 +395,11 @@ footer {
 }
 
 /* Botón para volver arriba (desliza suave, no instantáneo).
-   Queda en medio de la línea entre lo blanco y lo negro, más
-   abajo: una parte arriba (blanco) y la mayor parte abajo (negro),
-   sin mover el texto. */
+   Queda en medio de la línea entre lo blanco y lo negro: mitad
+   arriba (blanco) y mitad abajo (negro), sin mover el texto. */
 .back-to-top {
   position: absolute;
-  top: -12px;
+  top: -24px;
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
