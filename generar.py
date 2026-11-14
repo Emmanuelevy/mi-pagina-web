@@ -190,7 +190,7 @@ GAMES_CARDS = """        <a class="game-card" href="https://www.rockstargames.co
         </a>
 """
 
-ANIMES_CARDS = """        <a class="game-card" href="https://es.wikipedia.org/wiki/Dragon_Ball" target="_blank" rel="noopener">
+ANIMES_CARDS = """        <a class="game-card" href="https://es.dragon-ball-official.com" target="_blank" rel="noopener">
           <img src="__ANIME_DRAGON_BALL__" alt="Dragon Ball">
           <span>Dragon Ball</span>
         </a>
