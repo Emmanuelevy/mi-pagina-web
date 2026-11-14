@@ -83,6 +83,7 @@ a:hover { color: var(--red-dark); }
 .hero-sub {
   margin: 10px 0 0;
   opacity: 0.95;
+  text-align: justify;
 }
 
 .hero-buttons {
