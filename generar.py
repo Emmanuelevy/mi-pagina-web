@@ -202,7 +202,7 @@ ANIMES_CARDS = """        <a class="game-card" href="https://es.dragon-ball-offi
           <img src="__ANIME_NARUTO__" alt="Naruto">
           <span>Naruto</span>
         </a>
-        <a class="game-card" href="https://es.wikipedia.org/wiki/Baki_the_Grappler" target="_blank" rel="noopener">
+        <a class="game-card" href="https://baki-anime.jp" target="_blank" rel="noopener">
           <img src="__ANIME_BAKI__" alt="Baki">
           <span>Baki</span>
         </a>
