@@ -71,7 +71,7 @@ a:hover { color: var(--red-dark); }
 .hero h1 {
   font-size: clamp(1.7rem, 4vw, 2.6rem);
   line-height: 1.2;
-  margin: 22px 0 6px;
+  margin: 8px 0 6px;
 }
 
 .hero-title {
