@@ -1,0 +1,246 @@
+/* Mi página web — Emmanuel Salomón Santiago Bustamante */
+:root {
+  --red: #E63946;
+  --red-dark: #c1121f;
+  --ink: #1d1d1f;
+  --muted: #5f5f66;
+  --bg: #ffffff;
+  --bg-alt: #f7f5f5;
+  --line: #ece7e7;
+  --radius: 16px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+a { color: var(--red); }
+a:hover { color: var(--red-dark); }
+
+/* Hero */
+.hero {
+  background: linear-gradient(160deg, #8f0f1a 0%, var(--red) 55%, #ff6b6b 100%);
+  color: #fff;
+  padding: 0 20px 56px;
+}
+
+.nav {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 20px 0 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  justify-content: center;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+.nav a:hover { opacity: 1; text-decoration: underline; }
+
+.hero-inner {
+  max-width: 760px;
+  margin: 28px auto 0;
+  text-align: center;
+}
+
+.hero-avatar {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  background: #fff;
+}
+
+.hero h1 {
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  line-height: 1.2;
+  margin: 22px 0 6px;
+}
+
+.hero-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.hero-sub {
+  margin: 10px 0 0;
+  opacity: 0.95;
+}
+
+.hero-buttons {
+  margin-top: 26px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 11px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+.btn-primary {
+  background: #fff;
+  color: var(--red-dark);
+}
+
+.btn-primary:hover { color: var(--red-dark); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); }
+
+.btn-ghost {
+  border-color: #fff;
+  color: #fff;
+}
+
+.btn-ghost:hover { color: #fff; background: rgba(255, 255, 255, 0.15); }
+
+/* Sections */
+.section {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 56px 20px;
+}
+
+.section-alt {
+  background: var(--bg-alt);
+  max-width: none;
+}
+
+.section-alt > * {
+  max-width: 1020px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section h2 {
+  font-size: 1.9rem;
+  margin: 0 0 8px;
+  color: var(--red-dark);
+}
+
+.section-intro {
+  color: var(--muted);
+  margin: 0 0 28px;
+  max-width: 720px;
+}
+
+/* Cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+  background: #f0ecec;
+}
+
+.card-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.card-body h3 { margin: 0; font-size: 1.15rem; }
+.card-body p { margin: 0; color: var(--muted); }
+
+.card-body .tag {
+  display: inline-block;
+  align-self: flex-start;
+  background: #fdecec;
+  color: var(--red-dark);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.card-body .btn {
+  margin-top: auto;
+  align-self: flex-start;
+  background: var(--red);
+  color: #fff;
+  padding: 9px 18px;
+  font-size: 0.95rem;
+}
+
+.card-body .btn:hover { background: var(--red-dark); color: #fff; }
+
+.card.featured { border: 2px solid var(--red); }
+
+/* Avatars */
+.avatars-grid .card img {
+  height: 220px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.avatar-card.current { border: 2px solid var(--red); }
+
+/* Contact */
+.contact-list {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px 26px;
+  max-width: 640px;
+}
+
+.contact-list p { margin: 10px 0; }
+
+/* Footer */
+footer {
+  background: var(--ink);
+  color: #fff;
+  text-align: center;
+  padding: 26px 20px;
+}
+
+footer p { margin: 0; opacity: 0.9; }
+
+@media (max-width: 560px) {
+  .hero-avatar { width: 150px; height: 150px; }
+  .section { padding: 40px 16px; }
+}
