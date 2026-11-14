@@ -218,6 +218,11 @@ a:hover { color: var(--red-dark); }
 
 .portfolio-link:hover { transform: translateY(-1px); }
 
+.portfolio-link img {
+  height: 260px;
+  object-position: top;
+}
+
 /* Avatars */
 .avatars-grid .card img {
   height: 220px;
