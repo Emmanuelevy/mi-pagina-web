@@ -394,11 +394,12 @@ footer {
 }
 
 /* Botón para volver arriba (desliza suave, no instantáneo).
-   Queda en medio de la línea entre lo blanco y lo negro: mitad
-   arriba (blanco) y mitad abajo (negro), sin mover el texto. */
+   Queda en medio de la línea entre lo blanco y lo negro, más
+   abajo: una parte arriba (blanco) y la mayor parte abajo (negro),
+   sin mover el texto. */
 .back-to-top {
   position: absolute;
-  top: -24px;
+  top: -12px;
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
