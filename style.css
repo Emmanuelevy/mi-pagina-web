@@ -233,6 +233,8 @@ a:hover { color: var(--red-dark); }
 
 .avatar-card.current { border: 2px solid var(--red); }
 
+.avatar-card .card-body p { text-align: justify; }
+
 /* Cuadritos: todos del mismo tamaño (portafolio, avatares y los que vengan) */
 .avatar-toggle {
   display: block;
