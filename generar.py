@@ -117,6 +117,11 @@ ANIMES = [
     ("Baki", "https://baki-anime.jp", "__ANIME_BAKI__"),
 ]
 
+DEPORTES = [
+    ("Natación", "https://www.facebook.com/share/1bzUXzov5L/?mibextid=wwXIfr", "__DEPORTE_NATACION__"),
+    ("MMA (Artes Marciales Mixtas)", "https://www.facebook.com/share/1ECEGSu2F7/?mibextid=wwXIfr", "__DEPORTE_MMA__"),
+]
+
 
 def avatar_cards():
     cards = []
@@ -219,11 +224,8 @@ index_html = """<!DOCTYPE html>
       </div>
       <p class="section-subtitle">Deportes</p>
       <div class="grid">
-        <a class="card avatar-toggle" href="https://www.facebook.com/share/1bzUXzov5L/?mibextid=wwXIfr" target="_blank" rel="noopener">
-          <img src="__DEPORTE_NATACION__" alt="Natación">
-        </a>
-        <a class="card avatar-toggle" href="https://www.facebook.com/share/1ECEGSu2F7/?mibextid=wwXIfr" target="_blank" rel="noopener">
-          <img src="__DEPORTE_MMA__" alt="MMA (Artes Marciales Mixtas)">
+        <a class="card avatar-toggle" href="deportes.html">
+          <img src="__DEPORTE_NATACION__" alt="Deportes">
         </a>
       </div>
     </div>
@@ -415,4 +417,12 @@ write_page("animes.html", fill(subpage(
     "Te presento mis animes favoritos.",
     "games-grid",
     link_cards(ANIMES),
+)))
+write_page("deportes.html", fill(subpage(
+    "Mis deportes",
+    "Mis deportes favoritos: Natación y MMA (Artes Marciales Mixtas).",
+    "Mis deportes",
+    "Te presento mis deportes favoritos.",
+    "games-grid",
+    link_cards(DEPORTES),
 )))
