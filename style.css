@@ -271,6 +271,9 @@ a:hover { color: var(--red-dark); }
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 16px;
   margin-top: 16px;
+  background: #fdf0f1;
+  border-radius: 20px;
+  padding: 24px;
 }
 
 .game-card {
@@ -298,7 +301,7 @@ a:hover { color: var(--red-dark); }
   text-align: center;
 }
 
-.avatars-grid { margin-top: 20px; }
+.avatars-grid { margin-top: 20px; background: #fdf0f1; border-radius: 20px; padding: 24px; }
 
 /* Contact */
 .contact-list {
