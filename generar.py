@@ -215,6 +215,10 @@ index_html = """<!DOCTYPE html>
           <img src="__ANIME_DRAGON_BALL__" alt="Animes">
         </a>
       </div>
+      <p class="section-subtitle">Deportes</p>
+      <div class="grid">
+        <div class="card avatar-toggle" style="height: 260px;"></div>
+      </div>
     </div>
   </section>
 
