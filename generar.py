@@ -29,6 +29,7 @@ IMAGE_FILES = {
     "__AV_TIBURON__": "assets/avatars-256/tiburon.webp",
     "__AV_PANDA__": "assets/avatars-256/panda.webp",
     "__AV_ITACHI__": "assets/avatars-256/itachi.webp",
+    "__AV_GENGAR__": "assets/avatars-256/gengar.webp",
     "__GAME_RED_DEAD_REDEMPTION__": "assets/games/red-dead-redemption.jpg",
     "__GAME_GTA_V__": "assets/games/gta-v.jpg",
     "__GAME_MANEATER__": "assets/games/maneater.jpg",
@@ -99,9 +100,12 @@ def fill(template):
 
 # (nombre, marcador de imagen, descripción, es el avatar puesto)
 AVATARS = [
+    ("Gengar", "__AV_GENGAR__",
+     "Esta criatura es Gengar, el Pokémon fantasma morado de ojos rojos y sonrisa pícara, travieso y misterioso, flotando entre las sombras.",
+     True),
     ("Itachi", "__AV_ITACHI__",
      "Esta criatura es Itachi Uchiha, ninja de Akatsuki con su capa negra de nubes rojas y su banda de Konoha, serio y misterioso.",
-     True),
+     False),
     ("Panda", "__AV_PANDA__",
      "Esta criatura es un panda adorable con su traje rojo y dorado, siempre listo para iluminar el camino con su linterna.",
      False),
@@ -252,6 +256,7 @@ index_html = """<!DOCTYPE html>
       <img class="hero-avatar hero-photo" id="hero-photo" src="__HERO_PHOTO__" alt="Merlin, el mago: con su larga barba blanca, su sombrero puntiagudo y su báculo" hidden>
       <button class="profile-arrow" id="profile-arrow" type="button" aria-label="Cambiar foto de perfil" aria-expanded="false">▼</button>
       <div class="profile-menu" id="profile-menu" hidden>
+        <button type="button" data-avatar="gengar">Gengar</button>
         <button type="button" data-avatar="itachi">Itachi</button>
         <button type="button" data-avatar="panda">Panda</button>
         <button type="button" data-avatar="tiny">Tiny</button>
@@ -341,6 +346,7 @@ index_html = """<!DOCTYPE html>
     document.body.classList.add('embedded');
   }
   var AVATARS = {
+    gengar: "__AV_GENGAR__",
     itachi: "__AV_ITACHI__",
     panda: "__AV_PANDA__",
     tiny: "__AV_TINY__",
@@ -353,6 +359,7 @@ index_html = """<!DOCTYPE html>
     tiburon: "__AV_TIBURON__"
   };
   var AVATAR_VIDEOS = {
+    gengar: "assets/videos/gengar.mp4",
     itachi: "assets/videos/itachi.mp4",
     panda: "assets/videos/panda.mp4",
     tiny: "assets/videos/tiny.mp4",
