@@ -189,8 +189,6 @@ a:hover { color: var(--red-dark); }
   object-position: top;
 }
 
-.avatar-card { border: 2px solid var(--red); }
-
 .avatar-card .card-body p { text-align: justify; }
 
 /* Foto de perfil con flechita para cambiar de avatar */
