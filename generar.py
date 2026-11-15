@@ -433,8 +433,10 @@ SUBPAGE = """<!DOCTYPE html>
 
 <main>
   <section class="section">
-    <div class="__GRID_CLASS__">
+    <div class="perimeter-box">
+      <div class="__GRID_CLASS__">
 __CARDS__
+      </div>
     </div>
   </section>
 </main>
