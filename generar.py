@@ -49,6 +49,7 @@ IMAGE_FILES = {
     "__ANIME_NARUTO__": "assets/animes/naruto.jpg",
     "__ANIME_BAKI__": "assets/animes/baki.jpg",
     "__DEPORTE_NATACION__": "assets/deportes/natacion.jpg",
+    "__DEPORTE_MMA__": "assets/deportes/mma.jpg",
 }
 
 IMAGES = {marker: b64(path) for marker, path in IMAGE_FILES.items()}
@@ -220,6 +221,9 @@ index_html = """<!DOCTYPE html>
       <div class="grid">
         <a class="card avatar-toggle" href="https://www.facebook.com/share/1bzUXzov5L/?mibextid=wwXIfr" target="_blank" rel="noopener">
           <img src="__DEPORTE_NATACION__" alt="Natación">
+        </a>
+        <a class="card avatar-toggle" href="https://www.facebook.com/share/1ECEGSu2F7/?mibextid=wwXIfr" target="_blank" rel="noopener">
+          <img src="__DEPORTE_MMA__" alt="MMA (Artes Marciales Mixtas)">
         </a>
       </div>
     </div>
