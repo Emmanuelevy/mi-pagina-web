@@ -50,6 +50,40 @@ IMAGE_FILES = {
     "__ANIME_BAKI__": "assets/animes/baki.jpg",
     "__DEPORTE_NATACION__": "assets/deportes/natacion.jpg",
     "__DEPORTE_MMA__": "assets/deportes/mma.jpg",
+    "__PEL_HARRY_POTTER_1__": "assets/peliculas/harry-potter-1.jpg",
+    "__PEL_HARRY_POTTER_2__": "assets/peliculas/harry-potter-2.jpg",
+    "__PEL_HARRY_POTTER_3__": "assets/peliculas/harry-potter-3.jpg",
+    "__PEL_HARRY_POTTER_4__": "assets/peliculas/harry-potter-4.jpg",
+    "__PEL_HARRY_POTTER_5__": "assets/peliculas/harry-potter-5.jpg",
+    "__PEL_HARRY_POTTER_6__": "assets/peliculas/harry-potter-6.jpg",
+    "__PEL_HARRY_POTTER_7__": "assets/peliculas/harry-potter-7.jpg",
+    "__PEL_HARRY_POTTER_8__": "assets/peliculas/harry-potter-8.jpg",
+    "__PEL_RAPIDO_Y_FURIOSO_1__": "assets/peliculas/rapido-y-furioso-1.jpg",
+    "__PEL_RAPIDO_Y_FURIOSO_2__": "assets/peliculas/rapido-y-furioso-2.jpg",
+    "__PEL_RAPIDO_Y_FURIOSO_3__": "assets/peliculas/rapido-y-furioso-3.jpg",
+    "__PEL_RAPIDO_Y_FURIOSO_4__": "assets/peliculas/rapido-y-furioso-4.jpg",
+    "__PEL_RAPIDO_Y_FURIOSO_5__": "assets/peliculas/rapido-y-furioso-5.jpg",
+    "__PEL_RAPIDO_Y_FURIOSO_6__": "assets/peliculas/rapido-y-furioso-6.jpg",
+    "__PEL_RAPIDO_Y_FURIOSO_7__": "assets/peliculas/rapido-y-furioso-7.jpg",
+    "__PEL_RAPIDO_Y_FURIOSO_8__": "assets/peliculas/rapido-y-furioso-8.jpg",
+    "__PEL_RAPIDO_Y_FURIOSO_9__": "assets/peliculas/rapido-y-furioso-9.jpg",
+    "__PEL_DRAGON_BALL_SUPER_BROLY__": "assets/peliculas/dragon-ball-super-broly.jpg",
+    "__PEL_EL_TRANSPORTADOR_2__": "assets/peliculas/el-transportador-2.jpg",
+    "__PEL_CONTACTO_SANGRIENTO__": "assets/peliculas/contacto-sangriento.jpg",
+    "__PEL_VAN_HELSING__": "assets/peliculas/van-helsing.jpg",
+    "__PEL_BATMAN_EL_CABALLERO_DE_LA_NOCHE__": "assets/peliculas/batman-el-caballero-de-la-noche.jpg",
+    "__PEL_SOY_LEYENDA__": "assets/peliculas/soy-leyenda.jpg",
+    "__PEL_BAD_BOYS_1__": "assets/peliculas/bad-boys-1.jpg",
+    "__PEL_BAD_BOYS_2__": "assets/peliculas/bad-boys-2.jpg",
+    "__PEL_BAD_BOYS_3__": "assets/peliculas/bad-boys-3.jpg",
+    "__PEL_SPACE_JAM__": "assets/peliculas/space-jam.jpg",
+    "__PEL_LOGAN__": "assets/peliculas/logan.jpg",
+    "__PEL_X_MEN_DIAS_DEL_FUTURO_PASADO__": "assets/peliculas/x-men-dias-del-futuro-pasado.jpg",
+    "__PEL_DEADPOOL_1__": "assets/peliculas/deadpool-1.jpg",
+    "__PEL_DEADPOOL_2__": "assets/peliculas/deadpool-2.jpg",
+    "__PEL_DEADPOOL_3__": "assets/peliculas/deadpool-3.jpg",
+    "__PEL_HERCULES__": "assets/peliculas/hercules.jpg",
+    "__PEL_ALADDIN__": "assets/peliculas/aladdin.jpg",
 }
 
 IMAGES = {marker: b64(path) for marker, path in IMAGE_FILES.items()}
@@ -120,6 +154,43 @@ ANIMES = [
 DEPORTES = [
     ("Natación", "https://www.facebook.com/share/1bzUXzov5L/?mibextid=wwXIfr", "__DEPORTE_NATACION__"),
     ("MMA (Artes Marciales Mixtas)", "https://www.facebook.com/share/1ECEGSu2F7/?mibextid=wwXIfr", "__DEPORTE_MMA__"),
+]
+
+PELICULAS = [
+    ("Harry Potter y la piedra filosofal", "https://es.wikipedia.org/wiki/Harry_Potter_y_la_piedra_filosofal_(pel%C3%ADcula)", "__PEL_HARRY_POTTER_1__"),
+    ("Harry Potter y la cámara secreta", "https://es.wikipedia.org/wiki/Harry_Potter_y_la_c%C3%A1mara_secreta_(pel%C3%ADcula)", "__PEL_HARRY_POTTER_2__"),
+    ("Harry Potter y el prisionero de Azkaban", "https://es.wikipedia.org/wiki/Harry_Potter_y_el_prisionero_de_Azkaban_(pel%C3%ADcula)", "__PEL_HARRY_POTTER_3__"),
+    ("Harry Potter y el cáliz de fuego", "https://es.wikipedia.org/wiki/Harry_Potter_y_el_c%C3%A1liz_de_fuego_(pel%C3%ADcula)", "__PEL_HARRY_POTTER_4__"),
+    ("Harry Potter y la Orden del Fénix", "https://es.wikipedia.org/wiki/Harry_Potter_y_la_Orden_del_F%C3%A9nix_(pel%C3%ADcula)", "__PEL_HARRY_POTTER_5__"),
+    ("Harry Potter y el misterio del príncipe", "https://es.wikipedia.org/wiki/Harry_Potter_y_el_misterio_del_pr%C3%ADncipe_(pel%C3%ADcula)", "__PEL_HARRY_POTTER_6__"),
+    ("Harry Potter y las Reliquias de la Muerte: parte 1", "https://es.wikipedia.org/wiki/Harry_Potter_y_las_Reliquias_de_la_Muerte:_parte_1", "__PEL_HARRY_POTTER_7__"),
+    ("Harry Potter y las Reliquias de la Muerte: parte 2", "https://es.wikipedia.org/wiki/Harry_Potter_y_las_Reliquias_de_la_Muerte:_parte_2", "__PEL_HARRY_POTTER_8__"),
+    ("Rápido y furioso", "https://es.wikipedia.org/wiki/The_Fast_and_the_Furious", "__PEL_RAPIDO_Y_FURIOSO_1__"),
+    ("Rápido y furioso 2", "https://es.wikipedia.org/wiki/2_Fast_2_Furious", "__PEL_RAPIDO_Y_FURIOSO_2__"),
+    ("Rápido y furioso: reto Tokio", "https://es.wikipedia.org/wiki/The_Fast_and_the_Furious:_Tokyo_Drift", "__PEL_RAPIDO_Y_FURIOSO_3__"),
+    ("Rápido y furioso 4", "https://es.wikipedia.org/wiki/Fast_%26_Furious", "__PEL_RAPIDO_Y_FURIOSO_4__"),
+    ("Rápido y furioso 5", "https://es.wikipedia.org/wiki/Fast_Five", "__PEL_RAPIDO_Y_FURIOSO_5__"),
+    ("Rápido y furioso 6", "https://es.wikipedia.org/wiki/Fast_%26_Furious_6", "__PEL_RAPIDO_Y_FURIOSO_6__"),
+    ("Rápido y furioso 7", "https://es.wikipedia.org/wiki/Furious_7", "__PEL_RAPIDO_Y_FURIOSO_7__"),
+    ("Rápido y furioso 8", "https://es.wikipedia.org/wiki/The_Fate_of_the_Furious", "__PEL_RAPIDO_Y_FURIOSO_8__"),
+    ("Rápido y furioso 9", "https://es.wikipedia.org/wiki/F9_(pel%C3%ADcula)", "__PEL_RAPIDO_Y_FURIOSO_9__"),
+    ("Dragon Ball Super: Broly", "https://es.wikipedia.org/wiki/Dragon_Ball_Super:_Broly", "__PEL_DRAGON_BALL_SUPER_BROLY__"),
+    ("El transportador 2", "https://es.wikipedia.org/wiki/Transporter_2", "__PEL_EL_TRANSPORTADOR_2__"),
+    ("Contacto sangriento", "https://es.wikipedia.org/wiki/Bloodsport", "__PEL_CONTACTO_SANGRIENTO__"),
+    ("Van Helsing: el cazador de monstruos", "https://es.wikipedia.org/wiki/Van_Helsing_(pel%C3%ADcula)", "__PEL_VAN_HELSING__"),
+    ("Batman: el caballero de la noche", "https://es.wikipedia.org/wiki/The_Dark_Knight", "__PEL_BATMAN_EL_CABALLERO_DE_LA_NOCHE__"),
+    ("Soy leyenda", "https://es.wikipedia.org/wiki/Soy_leyenda_(pel%C3%ADcula)", "__PEL_SOY_LEYENDA__"),
+    ("Bad Boys", "https://es.wikipedia.org/wiki/Bad_Boys", "__PEL_BAD_BOYS_1__"),
+    ("Bad Boys 2", "https://es.wikipedia.org/wiki/Bad_Boys_II", "__PEL_BAD_BOYS_2__"),
+    ("Bad Boys 3", "https://es.wikipedia.org/wiki/Bad_Boys_for_Life", "__PEL_BAD_BOYS_3__"),
+    ("Space Jam", "https://es.wikipedia.org/wiki/Space_Jam", "__PEL_SPACE_JAM__"),
+    ("Logan", "https://es.wikipedia.org/wiki/Logan_(pel%C3%ADcula)", "__PEL_LOGAN__"),
+    ("X-Men: días del futuro pasado", "https://es.wikipedia.org/wiki/X-Men:_d%C3%ADas_del_futuro_pasado", "__PEL_X_MEN_DIAS_DEL_FUTURO_PASADO__"),
+    ("Deadpool", "https://es.wikipedia.org/wiki/Deadpool_(pel%C3%ADcula)", "__PEL_DEADPOOL_1__"),
+    ("Deadpool 2", "https://es.wikipedia.org/wiki/Deadpool_2", "__PEL_DEADPOOL_2__"),
+    ("Deadpool 3", "https://es.wikipedia.org/wiki/Deadpool_%26_Wolverine", "__PEL_DEADPOOL_3__"),
+    ("Hércules", "https://es.wikipedia.org/wiki/H%C3%A9rcules_(pel%C3%ADcula_de_1997)", "__PEL_HERCULES__"),
+    ("Aladdín", "https://es.wikipedia.org/wiki/Aladd%C3%ADn_(pel%C3%ADcula_de_1992)", "__PEL_ALADDIN__"),
 ]
 
 
@@ -226,6 +297,12 @@ index_html = """<!DOCTYPE html>
       <div class="grid">
         <a class="card avatar-toggle" href="deportes.html">
           <img src="__DEPORTE_NATACION__" alt="Deportes">
+        </a>
+      </div>
+      <p class="section-subtitle">Películas</p>
+      <div class="grid">
+        <a class="card avatar-toggle" href="peliculas.html">
+          <img src="__PEL_HARRY_POTTER_1__" alt="Películas">
         </a>
       </div>
     </div>
@@ -425,4 +502,12 @@ write_page("deportes.html", fill(subpage(
     "Te presento mis deportes favoritos.",
     "games-grid",
     link_cards(DEPORTES),
+)))
+write_page("peliculas.html", fill(subpage(
+    "Mis películas",
+    "Mis películas favoritas: Harry Potter, Rápido y furioso, Dragon Ball Super: Broly, Deadpool y más.",
+    "Mis películas",
+    "Te presento mis películas favoritas.",
+    "games-grid",
+    link_cards(PELICULAS),
 )))
