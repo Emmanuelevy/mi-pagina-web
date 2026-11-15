@@ -27,6 +27,7 @@ IMAGE_FILES = {
     "__AV_VELOCIRAPTOR__": "assets/avatars-256/velociraptor.webp",
     "__AV_TIRANOSAURIO__": "assets/avatars-256/tiranosaurio-rex.webp",
     "__AV_TIBURON__": "assets/avatars-256/tiburon.webp",
+    "__AV_PANDA__": "assets/avatars-256/panda.webp",
     "__GAME_RED_DEAD_REDEMPTION__": "assets/games/red-dead-redemption.jpg",
     "__GAME_GTA_V__": "assets/games/gta-v.jpg",
     "__GAME_MANEATER__": "assets/games/maneater.jpg",
@@ -97,9 +98,12 @@ def fill(template):
 
 # (nombre, marcador de imagen, descripción, es el avatar puesto)
 AVATARS = [
+    ("Panda", "__AV_PANDA__",
+     "Esta criatura es un panda adorable con su traje rojo y dorado, siempre listo para iluminar el camino con su linterna.",
+     True),
     ("Tiny", "__AV_TINY__",
      "Tiny es un pitbull Red Nose, musculoso y sonriente, leal y protector con su familia, con su collar rojo de picos color oro.",
-     True),
+     False),
     ("Emmanuel", "__AV_EMMANUEL__",
      "Emmanuel en versión avatar 3D, musculoso, con el pelo corto, shorts blancos y gotas de agua.",
      False),
@@ -244,6 +248,7 @@ index_html = """<!DOCTYPE html>
       <img class="hero-avatar hero-photo" id="hero-photo" src="__HERO_PHOTO__" alt="Merlin, el mago: con su larga barba blanca, su sombrero puntiagudo y su báculo" hidden>
       <button class="profile-arrow" id="profile-arrow" type="button" aria-label="Cambiar foto de perfil" aria-expanded="false">▼</button>
       <div class="profile-menu" id="profile-menu" hidden>
+        <button type="button" data-avatar="panda">Panda</button>
         <button type="button" data-avatar="tiny">Tiny</button>
         <button type="button" data-avatar="emmanuel">Emmanuel</button>
         <button type="button" data-avatar="fantasma">Fantasma</button>
@@ -331,6 +336,7 @@ index_html = """<!DOCTYPE html>
     document.body.classList.add('embedded');
   }
   var AVATARS = {
+    panda: "__AV_PANDA__",
     tiny: "__AV_TINY__",
     emmanuel: "__AV_EMMANUEL__",
     fantasma: "__AV_FANTASMA__",
@@ -341,6 +347,7 @@ index_html = """<!DOCTYPE html>
     tiburon: "__AV_TIBURON__"
   };
   var AVATAR_VIDEOS = {
+    panda: "assets/videos/panda.mp4",
     tiny: "assets/videos/tiny.mp4",
     emmanuel: "assets/videos/emmanuel.mp4",
     fantasma: "assets/videos/fantasma.mp4",
