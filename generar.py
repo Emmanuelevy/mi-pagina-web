@@ -48,6 +48,7 @@ IMAGE_FILES = {
     "__ANIME_ONE_PIECE__": "assets/animes/one-piece.jpg",
     "__ANIME_NARUTO__": "assets/animes/naruto.jpg",
     "__ANIME_BAKI__": "assets/animes/baki.jpg",
+    "__DEPORTE_NATACION__": "assets/deportes/natacion.jpg",
 }
 
 IMAGES = {marker: b64(path) for marker, path in IMAGE_FILES.items()}
@@ -217,7 +218,9 @@ index_html = """<!DOCTYPE html>
       </div>
       <p class="section-subtitle">Deportes</p>
       <div class="grid">
-        <div class="card avatar-toggle" style="height: 260px;"></div>
+        <a class="card avatar-toggle" href="https://www.facebook.com/share/1bzUXzov5L/?mibextid=wwXIfr" target="_blank" rel="noopener">
+          <img src="__DEPORTE_NATACION__" alt="Natación">
+        </a>
       </div>
     </div>
   </section>
