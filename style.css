@@ -182,6 +182,12 @@ a:hover { color: var(--red-dark); }
   object-position: top;
 }
 
+/* Texto del portafolio, justificado */
+.portfolio-text {
+  margin: 20px 0 0;
+  text-align: justify;
+}
+
 /* Avatars */
 .avatars-grid .card img {
   height: 220px;
