@@ -190,7 +190,7 @@ a:hover { color: var(--red-dark); }
 
 /* Avatars */
 .avatars-grid .card img {
-  height: 220px;
+  height: 300px;
   object-fit: cover;
   object-position: top;
 }
