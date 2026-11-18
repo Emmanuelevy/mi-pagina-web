@@ -17,7 +17,7 @@ def b64(path):
 # Todas las imágenes embebidas: marcador -> archivo.
 # Un solo diccionario y un solo bucle de sustitución en fill().
 IMAGE_FILES = {
-    "__HERO_PHOTO__": "assets/avatars/basilisco.webp",
+    "__HERO_PHOTO__": "assets/avatars/mushu.webp",
     "__PORTFOLIO_HERO__": "assets/portfolio-hero.png",
     "__AV_TINY__": "assets/avatars-256/tiny.webp",
     "__AV_EMMANUEL__": "assets/avatars-256/emmanuel.webp",
@@ -33,6 +33,7 @@ IMAGE_FILES = {
     "__AV_GENGAR__": "assets/avatars-256/gengar.webp",
     "__AV_GENGAR_GIGAMAX__": "assets/avatars-256/gengar-gigamax.webp",
     "__AV_BASILISCO__": "assets/avatars-256/basilisco.webp",
+    "__AV_MUSHU__": "assets/avatars-256/mushu.webp",
     "__GAME_RED_DEAD_REDEMPTION__": "assets/games/red-dead-redemption.jpg",
     "__GAME_GTA_V__": "assets/games/gta-v.jpg",
     "__GAME_MANEATER__": "assets/games/maneater.jpg",
@@ -114,9 +115,12 @@ def fill(template):
 
 # (nombre, marcador de imagen, descripción, es el avatar puesto)
 AVATARS = [
+    ("Mushu", "__AV_MUSHU__",
+     "Esta criatura es Mushu, el dragoncito rojo de Mulán, siempre listo para ayudar con su ingenio, su valentía y su gran corazón.",
+     True),
     ("Basilisco", "__AV_BASILISCO__",
      "Esta criatura es el basilisco macho de Herpo el Loco, el primer basilisco del que hay constancia en los libros de Harry Potter. Nace de un huevo de gallina incubado por un sapo, y el macho luce una pluma escarlata sobre la cabeza. Su mirada mata a quien la ve directo a sus ojos amarillos.",
-     True),
+     False),
     ("Gengar Gigamax", "__AV_GENGAR_GIGAMAX__",
      "Es de tipo fantasma y veneno. Shiny. Al gigamaxizarse, gran parte de su cuerpo queda sumergido en otra dimensión a través de una enorme boca abierta en el suelo, esperando atrapar a quien se acerque.",
      False),
@@ -287,10 +291,11 @@ index_html = """<!DOCTYPE html>
   </nav>
   <div class="hero-inner">
     <div class="profile-wrap">
-      <video class="hero-avatar hero-video" id="hero-video" src="assets/videos/basilisco.mp4" autoplay loop muted playsinline></video>
-      <img class="hero-avatar hero-photo" id="hero-photo" src="__HERO_PHOTO__" alt="Basilisco, una serpiente verde de escamas brillantes, con su cresta roja y sus colmillos afilados" hidden>
+      <video class="hero-avatar hero-video" id="hero-video" src="assets/videos/mushu.mp4" autoplay loop muted playsinline></video>
+      <img class="hero-avatar hero-photo" id="hero-photo" src="__HERO_PHOTO__" alt="Mushu, el dragoncito rojo de Mulán" hidden>
       <button class="profile-arrow" id="profile-arrow" type="button" aria-label="Cambiar foto de perfil" aria-expanded="false">▼</button>
       <div class="profile-menu" id="profile-menu" hidden>
+        <button type="button" data-avatar="mushu">Mushu</button>
         <button type="button" data-avatar="basilisco">Basilisco</button>
         <button type="button" data-avatar="gengar_gigamax">Gengar Gigamax</button>
         <button type="button" data-avatar="gengar">Gengar</button>
@@ -397,6 +402,7 @@ index_html = """<!DOCTYPE html>
     document.body.classList.add('embedded');
   }
   var AVATARS = {
+    mushu: "__AV_MUSHU__",
     basilisco: "__AV_BASILISCO__",
     gengar_gigamax: "__AV_GENGAR_GIGAMAX__",
     gengar: "__AV_GENGAR__",
@@ -413,6 +419,7 @@ index_html = """<!DOCTYPE html>
     tiburon: "__AV_TIBURON__"
   };
   var AVATAR_VIDEOS = {
+    mushu: "assets/videos/mushu.mp4",
     basilisco: "assets/videos/basilisco.mp4",
     gengar_gigamax: "assets/videos/gengar-gigamax.mp4",
     gengar: "assets/videos/gengar.mp4",
