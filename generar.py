@@ -17,7 +17,7 @@ def b64(path):
 # Todas las imágenes embebidas: marcador -> archivo.
 # Un solo diccionario y un solo bucle de sustitución en fill().
 IMAGE_FILES = {
-    "__HERO_PHOTO__": "assets/avatars/merlin.webp",
+    "__HERO_PHOTO__": "assets/avatars/basilisco.webp",
     "__PORTFOLIO_HERO__": "assets/portfolio-hero.png",
     "__AV_TINY__": "assets/avatars-256/tiny.webp",
     "__AV_EMMANUEL__": "assets/avatars-256/emmanuel.webp",
@@ -29,7 +29,10 @@ IMAGE_FILES = {
     "__AV_TIBURON__": "assets/avatars-256/tiburon.webp",
     "__AV_PANDA__": "assets/avatars-256/panda.webp",
     "__AV_ITACHI__": "assets/avatars-256/itachi.webp",
+    "__AV_GENGAR_BLANCO__": "assets/avatars-256/gengar-blanco.webp",
     "__AV_GENGAR__": "assets/avatars-256/gengar.webp",
+    "__AV_GENGAR_GIGAMAX__": "assets/avatars-256/gengar-gigamax.webp",
+    "__AV_BASILISCO__": "assets/avatars-256/basilisco.webp",
     "__GAME_RED_DEAD_REDEMPTION__": "assets/games/red-dead-redemption.jpg",
     "__GAME_GTA_V__": "assets/games/gta-v.jpg",
     "__GAME_MANEATER__": "assets/games/maneater.jpg",
@@ -87,6 +90,17 @@ IMAGE_FILES = {
     "__PEL_DEADPOOL_3__": "assets/peliculas/deadpool-3.jpg",
     "__PEL_HERCULES__": "assets/peliculas/hercules.jpg",
     "__PEL_ALADDIN__": "assets/peliculas/aladdin.jpg",
+    "__TEC_APPLE__": "assets/tecnologia/apple.jpg",
+    "__TEC_DELL__": "assets/tecnologia/dell.jpg",
+    "__TEC_GAMESIR__": "assets/tecnologia/gamesir.jpg",
+    "__TEC_ANKER__": "assets/tecnologia/anker.jpg",
+    "__TEC_UGREEN__": "assets/tecnologia/ugreen.jpg",
+    "__TEC_VIDITA__": "assets/tecnologia/vidita.jpg",
+    "__TEC_MUSE__": "assets/tecnologia/muse.jpg",
+    "__HOGWARTS__": "assets/hogwarts/perfil.jpg",
+    "__HOGWARTS_VARITA__": "assets/hogwarts/varita.jpg",
+    "__HOGWARTS_PATRONUS__": "assets/hogwarts/patronus.jpg",
+    "__HOGWARTS_SLYTHERIN__": "assets/hogwarts/slytherin.jpg",
 }
 
 IMAGES = {marker: b64(path) for marker, path in IMAGE_FILES.items()}
@@ -100,9 +114,18 @@ def fill(template):
 
 # (nombre, marcador de imagen, descripción, es el avatar puesto)
 AVATARS = [
-    ("Gengar", "__AV_GENGAR__",
-     "Esta criatura es Gengar, el Pokémon fantasma morado de ojos rojos y sonrisa pícara, travieso y misterioso, flotando entre las sombras.",
+    ("Basilisco", "__AV_BASILISCO__",
+     "Esta criatura es el basilisco macho de Herpo el Loco, el primer basilisco del que hay constancia en los libros de Harry Potter. Nace de un huevo de gallina incubado por un sapo, y el macho luce una pluma escarlata sobre la cabeza. Su mirada mata a quien la ve directo a sus ojos amarillos.",
      True),
+    ("Gengar Gigamax", "__AV_GENGAR_GIGAMAX__",
+     "Es de tipo fantasma y veneno. Shiny. Al gigamaxizarse, gran parte de su cuerpo queda sumergido en otra dimensión a través de una enorme boca abierta en el suelo, esperando atrapar a quien se acerque.",
+     False),
+    ("Gengar", "__AV_GENGAR__",
+     "Es de tipo fantasma y veneno. Siempre lleva una sonrisa ya que nunca se rinde, es muy alegre, su lealtad y su vínculo son inquebrantables, además es muy afectuoso.",
+     False),
+    ("Mega Gengar", "__AV_GENGAR_BLANCO__",
+     "Es de tipo fantasma y veneno, es shiny, tiene un tercer ojo que jamás parpadea y le permite checar otras dimensiones.",
+     False),
     ("Itachi", "__AV_ITACHI__",
      "Esta criatura es Itachi Uchiha, ninja de Akatsuki con su capa negra de nubes rojas y su banda de Konoha, serio y misterioso.",
      False),
@@ -205,6 +228,16 @@ PELICULAS = [
     ("Aladdín", "https://es.wikipedia.org/wiki/Aladd%C3%ADn_(pel%C3%ADcula_de_1992)", "__PEL_ALADDIN__"),
 ]
 
+TECNOLOGIA = [
+    ("Apple", "https://www.apple.com", "__TEC_APPLE__"),
+    ("Dell", "https://www.dell.com", "__TEC_DELL__"),
+    ("GameSir", "https://gamesir.com", "__TEC_GAMESIR__"),
+    ("Anker", "https://www.anker.com", "__TEC_ANKER__"),
+    ("UGREEN", "https://www.ugreen.com", "__TEC_UGREEN__"),
+    ("VIDITA", "https://www.mercadolibre.cl/tienda/vidita", "__TEC_VIDITA__"),
+    ("Muse", "https://muse.ai", "__TEC_MUSE__"),
+]
+
 
 def avatar_cards():
     cards = []
@@ -242,6 +275,8 @@ index_html = """<!DOCTYPE html>
 <title>Mi página web | Emmanuel Salomón Santiago Bustamante</title>
 <meta name="description" content="Mi página web personal: mi portafolio, mis avatares y mis proyectos en un solo lugar.">
 <link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 </head>
 <body>
 <header class="hero">
@@ -252,11 +287,14 @@ index_html = """<!DOCTYPE html>
   </nav>
   <div class="hero-inner">
     <div class="profile-wrap">
-      <video class="hero-avatar hero-video" id="hero-video" src="assets/videos/merlin.mp4" autoplay loop muted playsinline></video>
-      <img class="hero-avatar hero-photo" id="hero-photo" src="__HERO_PHOTO__" alt="Merlin, el mago: con su larga barba blanca, su sombrero puntiagudo y su báculo" hidden>
+      <video class="hero-avatar hero-video" id="hero-video" src="assets/videos/basilisco.mp4" autoplay loop muted playsinline></video>
+      <img class="hero-avatar hero-photo" id="hero-photo" src="__HERO_PHOTO__" alt="Basilisco, una serpiente verde de escamas brillantes, con su cresta roja y sus colmillos afilados" hidden>
       <button class="profile-arrow" id="profile-arrow" type="button" aria-label="Cambiar foto de perfil" aria-expanded="false">▼</button>
       <div class="profile-menu" id="profile-menu" hidden>
+        <button type="button" data-avatar="basilisco">Basilisco</button>
+        <button type="button" data-avatar="gengar_gigamax">Gengar Gigamax</button>
         <button type="button" data-avatar="gengar">Gengar</button>
+        <button type="button" data-avatar="gengar_blanco">Mega Gengar</button>
         <button type="button" data-avatar="itachi">Itachi</button>
         <button type="button" data-avatar="panda">Panda</button>
         <button type="button" data-avatar="tiny">Tiny</button>
@@ -284,16 +322,17 @@ index_html = """<!DOCTYPE html>
           <img src="__PORTFOLIO_HERO__" alt="Mi portafolio">
         </a>
       </div>
+      <p class="portfolio-text">Todos mis proyectos se encuentran alojados en mi portafolio digital, desde el juego de pingpong; creado en el curso de ALURA LATAM, hasta la app de Mi Wuawua; dedicada a todos los perritos del mundo. Puedes entrar y consultar mis proyectos dando clic en mi foto.</p>
     </div>
   </section>
 
   <section id="pasatiempos" class="section section-alt">
     <div class="perimeter-box">
       <h2>Mis pasatiempos</h2>
-      <p class="section-subtitle">Mis avatares</p>
+      <p class="section-subtitle">Avatares</p>
       <div class="grid">
         <a class="card avatar-toggle" href="avatares.html">
-          <img src="__AV_TINY__" alt="Mis avatares">
+          <img src="__AV_TINY__" alt="Avatares">
         </a>
       </div>
       <p class="section-subtitle">Videojuegos</p>
@@ -318,6 +357,18 @@ index_html = """<!DOCTYPE html>
       <div class="grid">
         <a class="card avatar-toggle" href="peliculas.html">
           <img src="__PEL_HARRY_POTTER_1__" alt="Películas">
+        </a>
+      </div>
+      <p class="section-subtitle">Tecnología</p>
+      <div class="grid">
+        <a class="card avatar-toggle" href="tecnologia.html">
+          <img src="__TEC_APPLE__" alt="Tecnología">
+        </a>
+      </div>
+      <p class="section-subtitle">Hogwarts</p>
+      <div class="grid">
+        <a class="card avatar-toggle" href="hogwarts.html">
+          <img src="__HOGWARTS__" alt="Hogwarts">
         </a>
       </div>
     </div>
@@ -346,7 +397,10 @@ index_html = """<!DOCTYPE html>
     document.body.classList.add('embedded');
   }
   var AVATARS = {
+    basilisco: "__AV_BASILISCO__",
+    gengar_gigamax: "__AV_GENGAR_GIGAMAX__",
     gengar: "__AV_GENGAR__",
+    gengar_blanco: "__AV_GENGAR_BLANCO__",
     itachi: "__AV_ITACHI__",
     panda: "__AV_PANDA__",
     tiny: "__AV_TINY__",
@@ -359,7 +413,10 @@ index_html = """<!DOCTYPE html>
     tiburon: "__AV_TIBURON__"
   };
   var AVATAR_VIDEOS = {
+    basilisco: "assets/videos/basilisco.mp4",
+    gengar_gigamax: "assets/videos/gengar-gigamax.mp4",
     gengar: "assets/videos/gengar.mp4",
+    gengar_blanco: "assets/videos/gengar-blanco.mp4",
     itachi: "assets/videos/itachi.mp4",
     panda: "assets/videos/panda.mp4",
     tiny: "assets/videos/tiny.mp4",
@@ -440,6 +497,8 @@ SUBPAGE = """<!DOCTYPE html>
 <title>__TITLE__ | Emmanuel Salomón Santiago Bustamante</title>
 <meta name="description" content="__DESCRIPTION__">
 <link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 </head>
 <body>
 <header class="hero">
@@ -493,10 +552,10 @@ def write_page(filename, html):
 
 write_page("index.html", fill(index_html))
 write_page("avatares.html", fill(subpage(
-    "Mis avatares",
-    "Mis avatares: Tiny, Emmanuel, Fantasma, Gastly, Merlin, Velociraptor, Tiranosaurio rex y Tiburón.",
-    "Mis avatares",
-    "Te presento mis avatares, realizados en modelo 3D.",
+    "Avatares",
+    "Avatares: Tiny, Emmanuel, Fantasma, Gastly, Merlin, Velociraptor, Tiranosaurio rex y Tiburón.",
+    "Avatares",
+    "Te presento a mis avatares, fueron creados en modelo 3D, elegí estos personajes porque me gustan mucho y son algunos de mis favoritos.",
     "grid avatars-grid",
     avatar_cards(),
 )))
@@ -504,7 +563,7 @@ write_page("videojuegos.html", fill(subpage(
     "Mis videojuegos",
     "Mis videojuegos favoritos: Red Dead Redemption, GTA V, Maneater, Dragon Ball Z Kakarot, Metal Slug y más.",
     "Mis videojuegos",
-    "Te presento mis videojuegos favoritos.",
+    "Te presento mis videojuegos favoritos. Me gustan porque unos tienen modo historia, puedes seguir mejorando al personaje, tienen modo libre y algunos incluyen todo junto. Sin duda son geniales.",
     "games-grid",
     link_cards(GAMES),
 )))
@@ -512,7 +571,7 @@ write_page("animes.html", fill(subpage(
     "Mis animes",
     "Mis animes favoritos: Dragon Ball, One Piece, Naruto y Baki.",
     "Mis animes",
-    "Te presento mis animes favoritos.",
+    "Te presento algunos de mis animes favoritos. Sin duda geniales, aunque para mí el mejor de todos, es el padre de los animes y sin duda alguna mi favorito, Dragon Ball.",
     "games-grid",
     link_cards(ANIMES),
 )))
@@ -520,7 +579,7 @@ write_page("deportes.html", fill(subpage(
     "Mis deportes",
     "Mis deportes favoritos: Natación y MMA (Artes Marciales Mixtas).",
     "Mis deportes",
-    "Te presento mis deportes favoritos.",
+    "Te presento mis deportes favoritos. Son deportes muy completos en el cual te ayudan a relajarte muy bien.",
     "games-grid",
     link_cards(DEPORTES),
 )))
@@ -528,7 +587,26 @@ write_page("peliculas.html", fill(subpage(
     "Mis películas",
     "Mis películas favoritas: Harry Potter, Rápido y furioso, Dragon Ball Super: Broly, Deadpool y más.",
     "Mis películas",
-    "Te presento mis películas favoritas.",
+    "Te presentó mis películas favoritas. Me encantan porque tienen una buena trama y te mantienen con un interés bueno, además hay acción, romance, suspenso, fantasía y comedia. Sin duda son de las mejores que existen.",
     "games-grid",
     link_cards(PELICULAS),
+)))
+write_page("tecnologia.html", fill(subpage(
+    "Mi tecnología",
+    "Mi tecnología favorita: Apple, Dell y GameSir.",
+    "Mi tecnología",
+    "Te presento mi tecnología favorita. Esta tecnología me encanta porque además de presentar un diseño único y muy elegante en el hardware, su software es fluido y limpio, lo que permite realizar tus cosas siempre a gusto.",
+    "games-grid",
+    link_cards(TECNOLOGIA),
+)))
+write_page("hogwarts.html", fill(subpage(
+    "Hogwarts",
+    "Mi perfil de Hogwarts: Slytherin, patrón Dragón y varita de Madera de Anciano.",
+    "Hogwarts",
+    "Estudié en Hogwarts, perteneciente a la casa de Slytherin, soy el heredero de Salazar Slytherin, hablo pársel, mi varita es la varita de saúco, mi patronus es un dragón, mi basilisco es macho; por eso tiene una pluma escarlata en la cabeza, solo yo lo controlo y es el que puedes seleccionar en el perfil de esta página. Soy el mago más poderoso de todos los tiempos.",
+    "games-grid",
+    '        <a href="https://www.harrypotter.com/profile/788ac0ad-a932-4110-ae7a-259d1bfebe04" target="_blank" rel="noopener" style="display: block; width: 100%; max-width: 700px; margin: 0 auto; grid-column: 1 / -1;"><img src="__HOGWARTS__" alt="Mi perfil de Hogwarts" style="width: 100%; border-radius: 20px; display: block;"></a>\n'
+    '        <div style="width: 100%; max-width: 700px; margin: 30px auto 0; grid-column: 1 / -1; text-align: justify;"><img src="__HOGWARTS_SLYTHERIN__" alt="Escudo de Slytherin" style="width: 120px; border-radius: 20px; float: left; margin: 0 20px 10px 0;">En <strong>Slytherin</strong> las cualidades siempre son:<br><br><em>Ambición</em>: Tienen metas muy altas y un fuerte deseo de alcanzar el éxito y destacar.<br><em>Astucia</em>: Son estratégicos, calculadores y saben analizar las situaciones antes de actuar.<br><em>Auto preservación</em>: Piensan con calma y sopesan los riesgos o resultados posibles antes de tomar una decisión.<br><em>Liderazgo e ingenio</em>: Poseen un fuerte carácter para hacerse cargo de las situaciones y encontrar soluciones creativas.<br><em>Determinación</em>: Cuando se ponen un objetivo, son sumamente perseverantes y no se detienen hasta conseguirlo.</div>\n'
+    '        <div style="width: 100%; max-width: 700px; margin: 30px auto 0; grid-column: 1 / -1; text-align: justify;"><img src="__HOGWARTS_VARITA__" alt="Mi varita de saúco" style="width: 120px; border-radius: 20px; float: left; margin: 0 20px 10px 0;">La <strong>varita de saúco</strong> es el artefacto más poderoso de todo el mundo mágico. Fue creada por el hermano mayor de los Peverell; Antioch Peverell, ya que el cuento solo fue eso! Un cuento.</div>\n'
+    '        <div style="width: 100%; max-width: 700px; margin: 30px auto 0; grid-column: 1 / -1; text-align: justify;"><img src="__HOGWARTS_PATRONUS__" alt="Mi patronus, un dragón" style="width: 120px; border-radius: 20px; float: left; margin: 0 20px 10px 0;">El <strong>patronus de Dragón</strong>, en su rareza: Forma parte de las criaturas legendarias y mágicas (junto al fénix y el unicornio), lo que indica que quien lo conjura posee un nivel de habilidad mágica muy poco común.<br><br>Su presencia: Refleja una fuerza interior inmensa, una intensidad abrumadora y una valentía imposible de intimidar. Son personas con una energía inconfundible, firmeza en sus convicciones y un papel innato de protectores y líderes feroces.</div>\n',
 )))
