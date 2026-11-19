@@ -313,7 +313,7 @@ index_html = """<!DOCTYPE html>
       </div>
     </div>
     <h1>Emmanuel Salomón Santiago Bustamante</h1>
-    <p class="hero-sub">Bienvenido a mi página. Aquí podrás encontrar desde mis trabajos realizados en mi portafolio, hasta mis gustos, pasatiempos, como la creación de mis avatares y más. Espero disfrutes de tu visita.</p>
+    <p class="hero-sub">Bienvenido a mi página. Aquí podrás encontrar desde mis trabajos realizados en mi portafolio, hasta mis gustos, pasatiempos; como la creación de mis avatares y más. Espero disfrutes de tu visita.</p>
   </div>
 </header>
 
