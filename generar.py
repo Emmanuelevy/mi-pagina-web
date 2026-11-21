@@ -17,7 +17,7 @@ def b64(path):
 # Todas las imágenes embebidas: marcador -> archivo.
 # Un solo diccionario y un solo bucle de sustitución en fill().
 IMAGE_FILES = {
-    "__HERO_PHOTO__": "assets/avatars/iphone.webp",
+    "__HERO_PHOTO__": "assets/avatars/numero-1.webp",
     "__PORTFOLIO_HERO__": "assets/portfolio-hero.png",
     "__AV_TINY__": "assets/avatars-256/tiny.webp",
     "__AV_EMMANUEL__": "assets/avatars-256/emmanuel.webp",
@@ -35,6 +35,7 @@ IMAGE_FILES = {
     "__AV_BASILISCO__": "assets/avatars-256/basilisco.webp",
     "__AV_MUSHU__": "assets/avatars-256/mushu.webp",
     "__AV_IPHONE__": "assets/avatars-256/iphone.webp",
+    "__AV_NUMERO_1__": "assets/avatars-256/numero-1.webp",
     "__GAME_RED_DEAD_REDEMPTION__": "assets/games/red-dead-redemption.jpg",
     "__GAME_GTA_V__": "assets/games/gta-v.jpg",
     "__GAME_MANEATER__": "assets/games/maneater.jpg",
@@ -116,9 +117,12 @@ def fill(template):
 
 # (nombre, marcador de imagen, descripción, es el avatar puesto)
 AVATARS = [
+    ("Número 1", "__AV_NUMERO_1__",
+     "Esta criatura es Número 1, el líder de los Chicos del Barrio, con sus lentes negros, su playera roja y sus botas enormes, siempre listo para la misión.",
+     True),
     ("iPhone", "__AV_IPHONE__",
      "Esta criatura es un iPhone 17 Pro rojo con patitas y manitas, siempre listo con su carita bonita.",
-     True),
+     False),
     ("Mushu", "__AV_MUSHU__",
      "Esta criatura es Mushu, el dragoncito rojo de Mulán, siempre listo para ayudar con su ingenio, su valentía y su gran corazón.",
      False),
@@ -295,10 +299,11 @@ index_html = """<!DOCTYPE html>
   </nav>
   <div class="hero-inner">
     <div class="profile-wrap">
-      <video class="hero-avatar hero-video" id="hero-video" src="assets/videos/iphone.mp4" autoplay loop muted playsinline></video>
-      <img class="hero-avatar hero-photo" id="hero-photo" src="__HERO_PHOTO__" alt="iPhone, el iPhone 17 Pro rojo con patitas y manitas" hidden>
+      <video class="hero-avatar hero-video" id="hero-video" src="assets/videos/numero-1.mp4" autoplay loop muted playsinline></video>
+      <img class="hero-avatar hero-photo" id="hero-photo" src="__HERO_PHOTO__" alt="Número 1, el líder de los Chicos del Barrio" hidden>
       <button class="profile-arrow" id="profile-arrow" type="button" aria-label="Cambiar foto de perfil" aria-expanded="false">▼</button>
       <div class="profile-menu" id="profile-menu" hidden>
+        <button type="button" data-avatar="numero_1">Número 1</button>
         <button type="button" data-avatar="iphone">iPhone</button>
         <button type="button" data-avatar="mushu">Mushu</button>
         <button type="button" data-avatar="basilisco">Basilisco</button>
@@ -407,6 +412,7 @@ index_html = """<!DOCTYPE html>
     document.body.classList.add('embedded');
   }
   var AVATARS = {
+    numero_1: "__AV_NUMERO_1__",
     iphone: "__AV_IPHONE__",
     mushu: "__AV_MUSHU__",
     basilisco: "__AV_BASILISCO__",
@@ -425,6 +431,7 @@ index_html = """<!DOCTYPE html>
     tiburon: "__AV_TIBURON__"
   };
   var AVATAR_VIDEOS = {
+    numero_1: "assets/videos/numero-1.mp4",
     iphone: "assets/videos/iphone.mp4",
     mushu: "assets/videos/mushu.mp4",
     basilisco: "assets/videos/basilisco.mp4",
