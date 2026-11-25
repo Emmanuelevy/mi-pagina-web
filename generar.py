@@ -36,6 +36,7 @@ IMAGE_FILES = {
     "__AV_MUSHU__": "assets/avatars-256/mushu.webp",
     "__AV_IPHONE__": "assets/avatars-256/iphone.webp",
     "__AV_NUMERO_1__": "assets/avatars-256/numero-1.webp",
+    "__GAME_GTA_VI__": "assets/games/gta-vi.jpg",
     "__GAME_RED_DEAD_REDEMPTION__": "assets/games/red-dead-redemption.jpg",
     "__GAME_GTA_V__": "assets/games/gta-v.jpg",
     "__GAME_MANEATER__": "assets/games/maneater.jpg",
@@ -118,16 +119,16 @@ def fill(template):
 # (nombre, marcador de imagen, descripción, es el avatar puesto)
 AVATARS = [
     ("Número 1", "__AV_NUMERO_1__",
-     "Esta criatura es Número 1, el líder de los Chicos del Barrio, con sus lentes negros, su playera roja y sus botas enormes, siempre listo para la misión.",
+     "Es Número 1, el líder de los Chicos del Barrio, con sus lentes negros, su playera roja y sus botas enormes, siempre listo para la misión.",
      True),
     ("iPhone", "__AV_IPHONE__",
-     "Esta criatura es un iPhone 17 Pro rojo con patitas y manitas, siempre listo con su carita bonita.",
+     "Es un iPhone 17 Pro rojo con patitas y manitas, siempre listo con su carita bonita.",
      False),
     ("Mushu", "__AV_MUSHU__",
-     "Esta criatura es Mushu, el dragoncito rojo de Mulán, siempre listo para ayudar con su ingenio, su valentía y su gran corazón.",
+     "Es Mushu, el dragoncito rojo de Mulán, siempre listo para ayudar con su ingenio, su valentía y su gran corazón.",
      False),
     ("Basilisco", "__AV_BASILISCO__",
-     "Esta criatura es el basilisco macho de Herpo el Loco, el primer basilisco del que hay constancia en los libros de Harry Potter. Nace de un huevo de gallina incubado por un sapo, y el macho luce una pluma escarlata sobre la cabeza. Su mirada mata a quien la ve directo a sus ojos amarillos.",
+     "Es el basilisco macho de Herpo el Loco, el primer basilisco del que hay constancia en los libros de Harry Potter. Nace de un huevo de gallina incubado por un sapo, y el macho luce una pluma escarlata sobre la cabeza. Su mirada mata a quien la ve directo a sus ojos amarillos.",
      False),
     ("Gengar Gigamax", "__AV_GENGAR_GIGAMAX__",
      "Es de tipo fantasma y veneno. Shiny. Al gigamaxizarse, gran parte de su cuerpo queda sumergido en otra dimensión a través de una enorme boca abierta en el suelo, esperando atrapar a quien se acerque.",
@@ -139,10 +140,10 @@ AVATARS = [
      "Es de tipo fantasma y veneno, es shiny, tiene un tercer ojo que jamás parpadea y le permite checar otras dimensiones.",
      False),
     ("Itachi", "__AV_ITACHI__",
-     "Esta criatura es Itachi Uchiha, ninja de Akatsuki con su capa negra de nubes rojas y su banda de Konoha, serio y misterioso.",
+     "Es Itachi Uchiha, ninja de Akatsuki con su capa negra de nubes rojas y su banda de Konoha, serio y misterioso.",
      False),
     ("Panda", "__AV_PANDA__",
-     "Esta criatura es un panda adorable con su traje rojo y dorado, siempre listo para iluminar el camino con su linterna.",
+     "Es un panda adorable con su traje rojo y dorado, siempre listo para iluminar el camino con su linterna.",
      False),
     ("Tiny", "__AV_TINY__",
      "Tiny es un pitbull Red Nose, musculoso y sonriente, leal y protector con su familia, con su collar rojo de picos color oro.",
@@ -172,6 +173,7 @@ AVATARS = [
 
 # (nombre, enlace, marcador de imagen)
 GAMES = [
+    ("GTA VI", "https://www.rockstargames.com/VI", "__GAME_GTA_VI__"),
     ("Red Dead Redemption", "https://www.rockstargames.com/reddeadredemption", "__GAME_RED_DEAD_REDEMPTION__"),
     ("GTA V", "https://www.rockstargames.com/gta-v", "__GAME_GTA_V__"),
     ("Maneater", "https://store.steampowered.com/app/629820/Maneater/", "__GAME_MANEATER__"),
@@ -582,7 +584,7 @@ write_page("avatares.html", fill(subpage(
 )))
 write_page("videojuegos.html", fill(subpage(
     "Mis videojuegos",
-    "Mis videojuegos favoritos: Red Dead Redemption, GTA V, Maneater, Dragon Ball Z Kakarot, Metal Slug y más.",
+    "Mis videojuegos favoritos: GTA VI, Red Dead Redemption, GTA V, Maneater, Dragon Ball Z Kakarot, Metal Slug y más.",
     "Mis videojuegos",
     "Te presento mis videojuegos favoritos. Me gustan porque unos tienen modo historia, puedes seguir mejorando al personaje, tienen modo libre y algunos incluyen todo junto. Sin duda son geniales.",
     "games-grid",
