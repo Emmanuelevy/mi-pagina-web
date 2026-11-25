@@ -301,7 +301,7 @@ index_html = """<!DOCTYPE html>
   </nav>
   <div class="hero-inner">
     <div class="profile-wrap">
-      <video class="hero-avatar hero-video" id="hero-video" src="assets/videos/numero-1.mp4" autoplay loop muted playsinline></video>
+      <video class="hero-avatar hero-video" id="hero-video" src="assets/videos/numero-1.mp4" autoplay loop muted playsinline preload="auto"></video>
       <img class="hero-avatar hero-photo" id="hero-photo" src="__HERO_PHOTO__" alt="Número 1, el líder de los Chicos del Barrio" hidden>
       <button class="profile-arrow" id="profile-arrow" type="button" aria-label="Cambiar foto de perfil" aria-expanded="false">▼</button>
       <div class="profile-menu" id="profile-menu" hidden>
@@ -480,7 +480,9 @@ index_html = """<!DOCTYPE html>
         video.src = videoSrc;
         video.hidden = false;
         photo.hidden = true;
-        video.play();
+        video.muted = true;
+        var p = video.play();
+        if (p && p.catch) p.catch(function () {});
       } else {
         photo.src = AVATARS[key];
         photo.alt = btn.textContent;
@@ -497,6 +499,18 @@ index_html = """<!DOCTYPE html>
         arrow.setAttribute('aria-expanded', 'false');
       }
     });
+  })();
+  (function () {
+    var video = document.getElementById('hero-video');
+    if (!video) return;
+    video.muted = true;
+    function intentar() {
+      var p = video.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+    video.addEventListener('canplay', intentar);
+    document.addEventListener('pointerdown', intentar, { once: true });
+    intentar();
   })();
   (function () {
     var btn = document.getElementById('back-to-top');
