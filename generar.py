@@ -17,9 +17,10 @@ def b64(path):
 # Todas las imágenes embebidas: marcador -> archivo.
 # Un solo diccionario y un solo bucle de sustitución en fill().
 IMAGE_FILES = {
-    "__HERO_PHOTO__": "assets/avatars/numero-1.webp",
+    "__HERO_PHOTO__": "assets/avatars/tiny-tiger.webp",
     "__PORTFOLIO_HERO__": "assets/portfolio-hero.png",
     "__AV_TINY__": "assets/avatars-256/tiny.webp",
+    "__AV_TINY_TIGER__": "assets/avatars-256/tiny-tiger.webp",
     "__AV_EMMANUEL__": "assets/avatars-256/emmanuel.webp",
     "__AV_FANTASMA__": "assets/avatars-256/fantasma.webp",
     "__AV_GASTLY__": "assets/avatars-256/gastly.webp",
@@ -118,9 +119,12 @@ def fill(template):
 
 # (nombre, marcador de imagen, descripción, es el avatar puesto)
 AVATARS = [
+    ("Tiny Tiger", "__AV_TINY_TIGER__",
+     "Es Tiny Tiger, el tigre musculoso de Crash Bandicoot, con su tabla de madera con púas azules, su nariz azul y su sonrisa llena de dientes, siempre listo para la pelea.",
+     True),
     ("Número 1", "__AV_NUMERO_1__",
      "Es Número 1, el líder de los Chicos del Barrio, con sus lentes negros, su playera roja y sus botas enormes, siempre listo para la misión.",
-     True),
+     False),
     ("iPhone", "__AV_IPHONE__",
      "Es un iPhone 17 Pro rojo con patitas y manitas, siempre listo con su carita bonita.",
      False),
@@ -301,10 +305,11 @@ index_html = """<!DOCTYPE html>
   </nav>
   <div class="hero-inner">
     <div class="profile-wrap">
-      <video class="hero-avatar hero-video" id="hero-video" src="assets/videos/numero-1.mp4" autoplay loop muted playsinline preload="auto"></video>
-      <img class="hero-avatar hero-photo" id="hero-photo" src="__HERO_PHOTO__" alt="Número 1, el líder de los Chicos del Barrio" hidden>
+      <video class="hero-avatar hero-video" id="hero-video" src="assets/videos/tiny-tiger.mp4" autoplay loop muted playsinline preload="auto"></video>
+      <img class="hero-avatar hero-photo" id="hero-photo" src="__HERO_PHOTO__" alt="Tiny Tiger, el tigre musculoso de Crash Bandicoot" hidden>
       <button class="profile-arrow" id="profile-arrow" type="button" aria-label="Cambiar foto de perfil" aria-expanded="false">▼</button>
       <div class="profile-menu" id="profile-menu" hidden>
+        <button type="button" data-avatar="tiny_tiger">Tiny Tiger</button>
         <button type="button" data-avatar="numero_1">Número 1</button>
         <button type="button" data-avatar="iphone">iPhone</button>
         <button type="button" data-avatar="mushu">Mushu</button>
@@ -414,6 +419,7 @@ index_html = """<!DOCTYPE html>
     document.body.classList.add('embedded');
   }
   var AVATARS = {
+    tiny_tiger: "__AV_TINY_TIGER__",
     numero_1: "__AV_NUMERO_1__",
     iphone: "__AV_IPHONE__",
     mushu: "__AV_MUSHU__",
@@ -433,6 +439,7 @@ index_html = """<!DOCTYPE html>
     tiburon: "__AV_TIBURON__"
   };
   var AVATAR_VIDEOS = {
+    tiny_tiger: "assets/videos/tiny-tiger.mp4",
     numero_1: "assets/videos/numero-1.mp4",
     iphone: "assets/videos/iphone.mp4",
     mushu: "assets/videos/mushu.mp4",
