@@ -120,7 +120,7 @@ def fill(template):
 # (nombre, marcador de imagen, descripción, es el avatar puesto)
 AVATARS = [
     ("Tiny Tiger", "__AV_TINY_TIGER__",
-     "Es Tiny Tiger, el tigre de Tasmania de Crash Bandicoot, extremadamente musculoso, con su gran nariz, su taparrabos verde y sus zapatillas rojas, con brazaletes y hombreras con pinchos, siempre listo para la pelea.",
+     "Es Tiny Tiger, el tigre de Crash Bandicoot, extremadamente musculoso, con su gran nariz, su taparrabos verde y sus zapatillas rojas, con brazaletes y hombreras con pinchos, siempre listo para la pelea.",
      True),
     ("Número 1", "__AV_NUMERO_1__",
      "Es Número 1, el líder de los Chicos del Barrio, con sus lentes negros, su playera roja y sus botas enormes, siempre listo para la misión.",
